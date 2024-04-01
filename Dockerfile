@@ -23,6 +23,7 @@ libonig-dev \
     unzip \
     git \
     nano \
+    libicu-dev \
     curl
 
 # Clear cache
