@@ -114,7 +114,7 @@ return [
     */
 
     'inject_assets' => true,
-    'asset_url' =>env('APP_URL'). '/public/livewire/livewire.js',
+    //'asset_url' =>env('APP_URL'). '/public/livewire/livewire.js',
 
     /*
     |---------------------------------------------------------------------------
