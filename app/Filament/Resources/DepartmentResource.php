@@ -27,6 +27,9 @@ class DepartmentResource extends Resource
                     Forms\Components\TextInput::make("name")
                         ->unique('departments','name',fn($record)=>$record)
                         ->required(),
+                    Forms\Components\Select::make("parent")
+                        ->relationship('parent','name')
+                        ->nullable(),
                 ])->columns(2),
 
             ]);
