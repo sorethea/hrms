@@ -23,7 +23,9 @@ class DepartmentResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\TextInput::make("name")
+                    ->unique('departments','name',fn($record)=>$record)
+                    ->required(),
             ]);
     }
 
