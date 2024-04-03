@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('departments', function (Blueprint $table) {
+        Schema::create('landmarks', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('logo')->nullable();
-            $table->boolean('is_brand')->default(false);
-            $table->foreignId('parent_id')->nullable();
-            $table->text('description')->nullable();
+            $table->string('code')->unique();
+            $table->string('name')->unique();
+            $table->morphs('model');
+            $table->json('properties')->nullable();
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('departments');
+        Schema::dropIfExists('landmarks');
     }
 };

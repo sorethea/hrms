@@ -7,6 +7,7 @@ use App\Filament\Resources\DepartmentResource\RelationManagers;
 use App\Models\Department;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Forms\Get;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -29,8 +30,17 @@ class DepartmentResource extends Resource
                         ->required(),
                     Forms\Components\Select::make("parent")
                         ->relationship('parent','name')
+                        ->searchable()
+                        ->nullable(),
+                    Forms\Components\Toggle::make("is_brand")
+                        ->live()
+                        ->default(false),
+                    Forms\Components\FileUpload::make("logo")
+                        ->image()
+                        ->hidden(fn(Get $get):bool =>!$get('is_brand'))
                         ->nullable(),
                     Forms\Components\Textarea::make("description")
+                        ->columnSpan(2)
                         ->nullable(),
                 ])->columns(2),
 
@@ -41,7 +51,14 @@ class DepartmentResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\ImageColumn::make('logo')
+                    ->circular(),
+                Tables\Columns\TextColumn::make("name")
+                    ->searchable(),
+                Tables\Columns\TextColumn::make("parent.name")
+                    ->searchable(),
+                Tables\Columns\IconColumn::make('is_brand')
+                    ->boolean(),
             ])
             ->filters([
                 //
