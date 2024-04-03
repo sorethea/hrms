@@ -30,7 +30,7 @@ class DepartmentResource extends Resource
                     Forms\Components\Select::make("parent")
                         ->relationship('parent','name')
                         ->nullable(),
-                    Forms\Components\MarkdownEditor::make("description")
+                    Forms\Components\Textarea::make("description")
                         ->nullable(),
                 ])->columns(2),
 
