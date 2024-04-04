@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('landmarks', function (Blueprint $table) {
             $table->id();
             $table->string('code')->unique();
-            $table->string('name')->unique();
+            $table->string('name')->nullable();
             $table->morphs('model');
-            $table->json('properties')->nullable();
+            $table->json('contact_number')->nullable();
+            $table->text('address')->nullable();
             $table->timestamps();
         });
     }

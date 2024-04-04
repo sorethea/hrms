@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 class Department extends Model
 {
@@ -28,7 +29,7 @@ class Department extends Model
         return $this->hasMany(self::class);
     }
 
-    public function landmarks(): HasMany{
-        return $this->hasMany(Landmark::class);
+    public function landmarks(): MorphMany{
+        return $this->morphMany(Landmark::class,"model");
     }
 }
