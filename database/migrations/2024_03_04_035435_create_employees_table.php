@@ -13,13 +13,14 @@ return new class extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
-            $table->string('first_name')->index();
-            $table->string('last_name')->index();
-            $table->string('job_title')->index();
+            $table->string('code')->unique()->index();
+            $table->string('name')->index();
+            $table->string('position')->index();
             $table->date('date_of_birth');
             $table->date('hired_date');
+            $table->string('type')->nullable();
             $table->date('last_working_date')->nullable();
-            $table->string('gender');
+            $table->string('gender')->nullable();
             $table->string('marital_status')->nullable();
             $table->string('email')->nullable();
             $table->string('phone_number')->nullable();
@@ -27,7 +28,7 @@ return new class extends Migration
             $table->string('bank_account')->nullable();
             $table->foreignId('user_id')->index()->nullable();
             $table->foreignId('report_to')->index()->nullable();
-            $table->foreignId('department_id')->index()->nullable();
+            $table->foreignId('ou_id')->index()->nullable();
             $table->json('properties')->nullable();
             $table->boolean('active');
             $table->timestamps();

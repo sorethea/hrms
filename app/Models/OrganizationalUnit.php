@@ -4,16 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
-class Department extends Model
+class OrganizationalUnit extends Model
 {
     use HasFactory;
+
 
     protected $fillable = [
         'name',
         'description',
+        'type',
         'parent_id',
         'is_brand',
         'logo',

@@ -23,7 +23,18 @@ class EmployeeResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\Section::make([
+                    Forms\Components\TextInput::make("name")
+                        ->label("Latin Name")
+                        ->required(),
+                    Forms\Components\TextInput::make("properties.kh_name")
+                        ->label("Khmer Name")
+                        ->required(),
+                    Forms\Components\Select::make("gender")
+                        ->options(["male"=>"Male","female"=>"Female"])
+                        ->required(),
+                    Forms\Components\DatePicker::make("date_of_birth")->required(),
+                ])->columns(3)
             ]);
     }
 
@@ -31,7 +42,7 @@ class EmployeeResource extends Resource
     {
         return $table
             ->columns([
-                //
+
             ])
             ->filters([
                 //
