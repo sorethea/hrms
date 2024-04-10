@@ -4,12 +4,15 @@ namespace App\Filament\Resources\EmployeeResource\Pages;
 
 use App\Filament\Resources\EmployeeResource;
 use Filament\Actions;
+use Filament\Pages\Concerns\ExposesTableToWidgets;
 use Filament\Resources\Components\Tab;
 use Filament\Resources\Pages\ListRecords;
 use Filament\Tables\Table;
 
 class ListEmployees extends ListRecords
 {
+    use ExposesTableToWidgets;
+
     protected static string $resource = EmployeeResource::class;
 
     protected function getHeaderActions(): array
