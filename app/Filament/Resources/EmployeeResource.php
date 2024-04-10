@@ -4,7 +4,10 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\EmployeeResource\Pages;
 use App\Filament\Resources\EmployeeResource\RelationManagers;
+use App\Filament\Resources\EmployeeResource\Widgets\EmployeeStat;
 use App\Models\Employee;
+use Carbon\Carbon;
+use Filament\Actions\ActionGroup;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -18,6 +21,7 @@ class EmployeeResource extends Resource
     protected static ?string $model = Employee::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-users';
+
 
     public static function form(Form $form): Form
     {
@@ -34,6 +38,8 @@ class EmployeeResource extends Resource
                         ->options(["male"=>"Male","female"=>"Female"])
                         ->required(),
                     Forms\Components\DatePicker::make("date_of_birth")->required(),
+                    Forms\Components\DatePicker::make("hired_date")->required(),
+                    Forms\Components\Toggle::make("active")->default(true),
                 ])->columns(3)
             ]);
     }
@@ -42,7 +48,21 @@ class EmployeeResource extends Resource
     {
         return $table
             ->columns([
-
+                Tables\Columns\TextColumn::make("code")->searchable(),
+                Tables\Columns\TextColumn::make("name")->searchable(),
+                Tables\Columns\TextColumn::make("position")->searchable(),
+                Tables\Columns\TextColumn::make("gender")
+                    ->searchable()
+                    ->formatStateUsing(fn($state)=>ucfirst($state)),
+                Tables\Columns\IconColumn::make("probation")
+                    ->false('')
+                    ->boolean(),
+                Tables\Columns\TextColumn::make("date_of_birth")
+                    ->label("Age")
+                    ->formatStateUsing(fn($state)=>Carbon::make($state)->age)
+                    ->suffix("year(s)"),
+                Tables\Columns\IconColumn::make("active")
+                    ->boolean(),
             ])
             ->filters([
                 //
@@ -76,5 +96,12 @@ class EmployeeResource extends Resource
     public static function getNavigationGroup(): ?string
     {
         return trans('hr.human_resources');
+    }
+
+    public static function getWidgets(): array
+    {
+        return [
+            EmployeeStat::class,
+        ];
     }
 }

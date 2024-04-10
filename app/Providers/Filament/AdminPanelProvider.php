@@ -39,6 +39,8 @@ class AdminPanelProvider extends PanelProvider
             ->pages([
                 Pages\Dashboard::class,
             ])
+            ->widgets([
+            ])
             ->plugins([
                 FilamentShieldPlugin::make(),
                 BreezyCore::make()
