@@ -33,12 +33,23 @@ class EmployeeStat extends BaseWidget
             ->perMonth()
             ->count();
         return [
-            Stat::make("Total Employees",$this->getPageTableQuery()->count())
+            Stat::make("Total Active Employees",$this->getPageTableQuery()
+                ->where("active",true)->count())
                 ->chart(
                     $employeeData
                         ->map(fn(TrendValue $value) => $value->aggregate)
                         ->toArray()
-                )
+                ),
+            Stat::make("Total Employee In Probation",
+                $this->getPageTableQuery()
+                    ->where("hired_date",">=",now()->subMonth(3))
+                    ->where("hired_date","<=",now())
+                    ->count()),
+
+            Stat::make("Total employees hired in this month",
+                $this->getPageTableQuery()
+                    ->whereBetween("hired_date",[now()->startOfMonth(),now()->endOfMonth()])
+                    ->count())
         ];
     }
 }

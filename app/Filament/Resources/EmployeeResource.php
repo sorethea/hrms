@@ -31,7 +31,7 @@ class EmployeeResource extends Resource
                     Forms\Components\TextInput::make("name")
                         ->label("Latin Name")
                         ->required(),
-                    Forms\Components\TextInput::make("properties.kh_name")
+                    Forms\Components\TextInput::make("name_kh")
                         ->label("Khmer Name")
                         ->required(),
                     Forms\Components\Select::make("gender")

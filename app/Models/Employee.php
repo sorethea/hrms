@@ -2,7 +2,10 @@
 
 namespace App\Models;
 
+use App\Casts\Property;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Casts\Json;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -21,10 +24,35 @@ class Employee extends Model
         "probation",
         "active",
     ];
-    protected $appends =[
-        "probation"
+    protected $casts =[
+        "properties"=>Property::class,
     ];
-    public function getProbationAttribute(): bool {
-        return Carbon::make($this->hired_date)->between(now()->subMonth(3),now());
+    protected $appends =[
+        "probation",
+        "name_kh"
+    ];
+//    public function getProbationAttribute(): bool {
+//        return Carbon::make($this->hired_date)->between(now()->subMonth(3),now());
+//    }
+//    public function getNameKhAttribute(): string{
+//        return $this->properties->name_kh??"";
+//    }
+//    public function setNameKhAttribute(): string{
+//        $this->properties->name_kh = request()->get("name_kh");
+//    }
+
+    protected function probation(): Attribute{
+        return Attribute::make(
+            get: fn():bool=>Carbon::make($this->hired_date)->between(now()->subMonth(3),now()),
+        );
+    }
+
+    protected function nameKh(): Attribute{
+        return Attribute::make(
+            get: fn()=>$this->properties->name_kh??'',
+            set: fn(string $value, array $attributes)=>new Property(
+               $attributes["name_kh"] = $value
+            ),
+        );
     }
 }
