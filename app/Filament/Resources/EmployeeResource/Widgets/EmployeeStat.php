@@ -32,24 +32,31 @@ class EmployeeStat extends BaseWidget
                 now())
             ->perMonth()
             ->count();
+        $hiredInThisMonth = $this->getPageTableQuery()
+            ->where("active",true)
+            ->whereBetween("hired_date",[now()->startOfMonth(),now()->endOfMonth()])
+            ->count();
+        $probationEmployees = $this->getPageTableQuery()
+            ->where("active",true)
+            ->where("hired_date",">=",now()->subMonth(3))
+            ->where("hired_date","<=",now())
+            ->count();
+        $activeEmployees = $this->getPageTableQuery()
+            ->where("active",true)
+            ->count();
         return [
-            Stat::make("Total Active Employees",$this->getPageTableQuery()
-                ->where("active",true)->count())
+            Stat::make("Total Active Employees",$activeEmployees)
+                ->color("success")
+                ->description("Hired in this month {$hiredInThisMonth} employees")
+                ->descriptionColor("info")
                 ->chart(
                     $employeeData
                         ->map(fn(TrendValue $value) => $value->aggregate)
                         ->toArray()
                 ),
-            Stat::make("Total Employee In Probation",
-                $this->getPageTableQuery()
-                    ->where("hired_date",">=",now()->subMonth(3))
-                    ->where("hired_date","<=",now())
-                    ->count()),
-
-            Stat::make("Total employees hired in this month",
-                $this->getPageTableQuery()
-                    ->whereBetween("hired_date",[now()->startOfMonth(),now()->endOfMonth()])
-                    ->count())
+            Stat::make("Total Employee In Probation", $probationEmployees)
+                ->color("primary"),
+            //Stat::make("Total employees hired in this month",$hiredInThisMonth),
         ];
     }
 }

@@ -54,14 +54,18 @@ class EmployeeResource extends Resource
                 Tables\Columns\TextColumn::make("gender")
                     ->searchable()
                     ->formatStateUsing(fn($state)=>ucfirst($state)),
-                Tables\Columns\IconColumn::make("probation")
-                    ->false('')
-                    ->boolean(),
+//                Tables\Columns\IconColumn::make("probation")
+//                    ->false('')
+//                    ->boolean(),
+
                 Tables\Columns\TextColumn::make("date_of_birth")
                     ->label("Age")
                     ->formatStateUsing(fn($state)=>Carbon::make($state)->age)
                     ->suffix("year(s)"),
+                Tables\Columns\TextColumn::make("manager.name")
+                    ->searchable(),
                 Tables\Columns\IconColumn::make("active")
+                    ->toggleable(isToggledHiddenByDefault: true)
                     ->boolean(),
             ])
             ->filters([

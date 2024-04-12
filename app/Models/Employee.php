@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Casts\Json;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Employee extends Model
 {
@@ -54,5 +55,9 @@ class Employee extends Model
                $attributes["name_kh"] = $value
             ),
         );
+    }
+
+    public function manager():BelongsTo{
+        return $this->belongsTo(self::class,'report_to','id');
     }
 }

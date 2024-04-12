@@ -19,6 +19,10 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        Employee::factory(100)->create();
+        Employee::factory(100)->create()->each(function($employee){
+            if($employee->active && str_contains($employee->position,"Manager")){
+                Employee::factory(random_int(3,10))->create(["report_to"=>$employee->id]);
+            }
+        });
     }
 }

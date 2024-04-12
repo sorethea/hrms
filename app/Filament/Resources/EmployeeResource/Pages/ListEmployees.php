@@ -32,12 +32,11 @@ class ListEmployees extends ListRecords
      public function getTabs(): array
      {
          return [
-             null =>Tab::make("All"),
-             "Male"=>Tab::make()->query(fn($query)=>$query->where("gender","male")),
-             "Female"=>Tab::make()->query(fn($query)=>$query->where("gender","female")),
-             "Active"=>Tab::make()->query(fn($query)=>$query->where("active",true)),
+             null =>Tab::make("Active")->query(fn($query)=>$query->where("active",true)),
+             "Male"=>Tab::make()->query(fn($query)=>$query->where("active",true)->where("gender","male")),
+             "Female"=>Tab::make()->query(fn($query)=>$query->where("active",true)->where("gender","female")),
              "Inactive"=>Tab::make()->query(fn($query)=>$query->where("active",false)),
-             "Probation"=>Tab::make()->query(fn($query)=>$query->whereBetween(DB::raw('DATE(hired_date)'),[now()->subMonth(3),now()])),
+             "Probation"=>Tab::make()->query(fn($query)=>$query->where("active",true)->whereBetween(DB::raw('DATE(hired_date)'),[now()->subMonth(3),now()])),
          ];
      }
 }
