@@ -11,15 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('organizational_units', function (Blueprint $table) {
+        Schema::create('holidays', function (Blueprint $table) {
             $table->id();
             $table->string("name");
-            $table->string("type")->nullable();
-            $table->text("description")->nullable();
-            $table->string("logo")->nullable();
-            $table->boolean("is_brand")->default(false);
-            $table->foreignId("parent_id")->nullable();
-            $table->boolean("active")->default(true);
+            $table->date("date");
             $table->timestamps();
         });
     }
@@ -29,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('organizational_units');
+        Schema::dropIfExists('holidays');
     }
 };

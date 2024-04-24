@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Casts\Json;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Employee extends Model
 {
@@ -60,4 +62,17 @@ class Employee extends Model
     public function manager():BelongsTo{
         return $this->belongsTo(self::class,'report_to','id');
     }
+
+    public function ou(): BelongsTo{
+        return $this->belongsTo(OrganizationalUnit::class);
+    }
+
+    public function holidays(): BelongsToMany{
+        return $this->belongsToMany(Holiday::class,'employee_has_holidays');
+    }
+
+    public function leaves(): HasMany{
+        return $this->hasMany(Leave::class);
+    }
+
 }

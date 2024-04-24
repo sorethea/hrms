@@ -34,10 +34,15 @@ class EmployeeResource extends Resource
                     Forms\Components\TextInput::make("name_kh")
                         ->label("Khmer Name")
                         ->required(),
+                    Forms\Components\TextInput::make("leave_balance")
+                        ->visibleOn("view")
+                        ->readOnly(),
                     Forms\Components\Select::make("gender")
                         ->options(["male"=>"Male","female"=>"Female"])
                         ->required(),
                     Forms\Components\DatePicker::make("date_of_birth")->required(),
+                    Forms\Components\TextInput::make("position")->required(),
+                    Forms\Components\Select::make("ou")->relationship('ou',"name")->required(),
                     Forms\Components\DatePicker::make("hired_date")->required(),
                     Forms\Components\Toggle::make("active")->default(true),
                 ])->columns(3)
@@ -62,6 +67,10 @@ class EmployeeResource extends Resource
                     ->label("Age")
                     ->formatStateUsing(fn($state)=>Carbon::make($state)->age)
                     ->suffix("year(s)"),
+                Tables\Columns\TextColumn::make("hired_date")
+                    ->date(),
+                Tables\Columns\TextColumn::make("leave_balance")
+                    ->suffix("day(s)"),
                 Tables\Columns\TextColumn::make("manager.name")
                     ->searchable(),
                 Tables\Columns\IconColumn::make("active")
@@ -72,6 +81,7 @@ class EmployeeResource extends Resource
                 //
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
@@ -84,7 +94,7 @@ class EmployeeResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            RelationManagers\LeavesRelationManager::class,
         ];
     }
 
@@ -93,6 +103,7 @@ class EmployeeResource extends Resource
         return [
             'index' => Pages\ListEmployees::route('/'),
             'create' => Pages\CreateEmployee::route('/create'),
+            'view' => Pages\ViewEmployee::route('/{record}'),
             'edit' => Pages\EditEmployee::route('/{record}/edit'),
         ];
     }

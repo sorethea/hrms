@@ -14,5 +14,16 @@ return [
         "Marriage",
         "Divorce",
         "Other"
+    ],
+    "leave"=>[
+        "status"=>[
+            "pending"=>"Pending",
+            "approved"=>"Approved",
+            "rejected"=>"Rejected",
+        ],
+        "type"=>[
+            "sick_leave"=>"Sick Leave",
+            "annual_leave"=>"Annual Leave"
+        ],
     ]
 ];

@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('organizational_units', function (Blueprint $table) {
+        Schema::create('leaves', function (Blueprint $table) {
             $table->id();
-            $table->string("name");
+            $table->foreignId("employee_id");
+            $table->dateTime("from");
+            $table->dateTime("to");
             $table->string("type")->nullable();
-            $table->text("description")->nullable();
-            $table->string("logo")->nullable();
-            $table->boolean("is_brand")->default(false);
-            $table->foreignId("parent_id")->nullable();
-            $table->boolean("active")->default(true);
+            $table->string("status")->nullable();
+            $table->integer("qty")->default(0);
+            $table->tinyText("remark")->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('organizational_units');
+        Schema::dropIfExists('leaves');
     }
 };

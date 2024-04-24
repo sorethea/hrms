@@ -16,13 +16,14 @@ return new class extends Migration
             $table->string('code')->unique()->index();
             $table->string('name')->index();
             $table->string('name_kh')->nullable();
-            $table->string('position')->index();
+            $table->string('position')->nullable();
             $table->date('date_of_birth');
             $table->date('hired_date');
             $table->string('type')->nullable();
             $table->string('level')->nullable();
             $table->string('sift')->nullable();
             $table->integer('probation_duration')->default(3);
+            $table->float('leave_balance',2)->default(0);
             $table->date('probation_confirmation_date')->nullable();
             $table->date('last_working_date')->nullable();
             $table->string('gender')->nullable();
