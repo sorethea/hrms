@@ -7,7 +7,6 @@ use Filament\Forms\Components\FileUpload;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
-use Filament\Models\Contracts\HasAvatar;
 use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
@@ -21,6 +20,7 @@ use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Jeffgreco13\FilamentBreezy\BreezyCore;
+use Sorethea\Core\CorePlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -39,8 +39,7 @@ class AdminPanelProvider extends PanelProvider
             ->pages([
                 Pages\Dashboard::class,
             ])
-            ->widgets([
-            ])
+
             ->plugins([
                 FilamentShieldPlugin::make(),
                 BreezyCore::make()
@@ -52,6 +51,7 @@ class AdminPanelProvider extends PanelProvider
                         ->avatar()
                         ->directory('profile-photos')
                         ->disk('public')),
+                CorePlugin::make(),
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([

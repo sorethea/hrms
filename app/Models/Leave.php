@@ -8,15 +8,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
+
 #[ObservedBy([LeaveObserver::class])]
 class Leave extends Model
 {
     use HasFactory;
-
-//    public static function boot(){
-//        parent::boot();
-//        Leave::observe(new LeaveObserver);
-//    }
 
     protected $fillable = [
         "employee_id",
@@ -32,8 +29,8 @@ class Leave extends Model
         return $this->belongsTo(Employee::class);
     }
 
-    public function transactions(): HasMany{
-        return $this->hasMany(LeaveTransaction::class,'transaction_id');
+    public function transactions(): MorphMany{
+        return $this->morphMany(Transaction::class,'reference');
     }
 
 }

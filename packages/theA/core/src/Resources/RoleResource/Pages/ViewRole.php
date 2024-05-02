@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Filament\Resources\Shield\RoleResource\Pages;
+namespace Sorethea\Core\Resources\RoleResource\Pages;
 
-use App\Filament\Resources\Shield\RoleResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ViewRecord;
+use Sorethea\Core\Resources\RoleResource;
 
 class ViewRole extends ViewRecord
 {

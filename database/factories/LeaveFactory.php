@@ -23,7 +23,7 @@ class LeaveFactory extends Factory
      */
     public function definition(): array
     {
-        $qty = random_int(0,4);
+        $qty = random_int(1,5);
         $employeeId = fake()->randomElement(Employee::query()
             ->where("leave_balance",">=",$qty)
             ->where("active",true)
@@ -53,10 +53,9 @@ class LeaveFactory extends Factory
             "from" =>$from,
             "to"=>$to,
             "remark"=>fake()->realTextBetween(20,50),
-            //"status"=>$status,
             "type"=>fake()->randomElement(array_keys(config("hr.leave.type"))),
-            //"balance"=>$employee->leave_balance??0,
             "qty"=>$qty,
+            "paid_leave"=>true,
         ];
     }
 }

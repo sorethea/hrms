@@ -1,0 +1,32 @@
+{
+    "name": "sorethea/core",
+    "description": "Filament application core.",
+    "type": "plugin",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Sorethea\\Core\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Sorethea\\Core\\CoreServiceProvider"
+            ]
+        }
+    },
+    "authors": [
+        {
+            "name": "Sorethea OK",
+            "email": "sorethea@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "filament/filament": "3.2",
+        "bezhansalleh/filament-shield": "3.2",
+        "jeffgreco13/filament-breezy": "1.5",
+        "3x1io/filament-user": "1.1",
+        "pxlrbt/filament-activity-log": "1.1"
+    }
+}

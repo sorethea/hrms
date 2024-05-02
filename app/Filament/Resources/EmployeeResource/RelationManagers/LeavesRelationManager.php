@@ -2,6 +2,8 @@
 
 namespace App\Filament\Resources\EmployeeResource\RelationManagers;
 
+use App\Filament\Resources\EmployeeResource;
+use App\Filament\Resources\LeaveResource;
 use App\Models\Holiday;
 use Carbon\Carbon;
 use Filament\Forms;
@@ -16,10 +18,18 @@ class LeavesRelationManager extends RelationManager
 {
     protected static string $relationship = 'Leaves';
 
+    /**
+     * @param Model $ownerRecord
+     * @param string $pageClass
+     * @return string|null
+     */
     public function form(Form $form): Form
     {
         return $form
             ->schema([
+                Forms\Components\Select::make('type')
+                    ->options(fn()=>config("hr.leave.type"))
+                    ->default("annual_leave"),
                 Forms\Components\DatePicker::make('from')
                     ->reactive()
                     ->required(),
@@ -43,16 +53,14 @@ class LeavesRelationManager extends RelationManager
                         $set("qty",$qty);
                     })
                     ->required(),
-                Forms\Components\Select::make('type')
-                    ->options(fn()=>config("hr.leave.type"))
-                    ->default("annual_leave"),
+
                 Forms\Components\Select::make('status')
                     ->options(fn()=>config("hr.leave.status"))
                     ->default("approved"),
                 Forms\Components\TextInput::make('qty')
                     ->helperText("Number of leave taken in day")
                     ->numeric(),
-                Forms\Components\TextInput::make('reason')
+                Forms\Components\Textarea::make('reason')
                     ->maxLength(255)
                     ->columnSpan(2)
             ]);
@@ -62,11 +70,14 @@ class LeavesRelationManager extends RelationManager
         return $query->orderBy("from","desc");
     }
 
+
     public function table(Table $table): Table
     {
         return $table
-            ->recordTitleAttribute('from,to,qty')
+            ->recordTitleAttribute('from')
             ->columns([
+//                Tables\Columns\TextColumn::make('id')
+//                    ->url(fn($record)=>LeaveResource::getUrl('view',['record'=>$record])),
                 Tables\Columns\TextColumn::make('from')
                     ->date(),
                 Tables\Columns\TextColumn::make('to')->date(),
@@ -78,7 +89,10 @@ class LeavesRelationManager extends RelationManager
                         "pending"=>"info",
                         "approved"=>"success",
                         "rejected"=>"danger",
+                        "cancelled"=>"warning",
                     }),
+                Tables\Columns\IconColumn::make("paid_leave")
+                    ->boolean(),
             ])
             ->filters([
                 //
@@ -86,9 +100,11 @@ class LeavesRelationManager extends RelationManager
             ->headerActions([
                 Tables\Actions\CreateAction::make(),
             ])
+
             ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\ActionGroup::make(array_merge([
+                    Tables\Actions\ViewAction::make(),
+                ],LeaveResource::getLeaveActions())),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

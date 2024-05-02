@@ -30,9 +30,12 @@ class EmployeeFactory extends Factory
         $isProbation = Carbon::make($hiredDate)->between(now()->subMonth(3),now());
         $leaveBalance = !$isProbation && $isActive ? 18:0;
         $ous = OrganizationalUnit::query()->where("active",true)->pluck("id");
+        $name = fake()->name;
         return [
-            "code"=>'THF'.str_pad(fake()->unique()->numberBetween(1,1000),6,"0",0),
-            "name"=>fake()->name,
+            "code"=>'THF'.str_pad(fake()->unique()->numberBetween(1,100000),6,"0",0),
+            "name"=>$name,
+            "name_kh"=>$name,
+            //"avatar_url"=>"https://ui-avatars.com/api/?name=".urlencode($name),
             "position"=>fake()->jobTitle(),
             "gender"=>fake()->randomElement(["male","female"]),
             "date_of_birth"=>fake()->dateTimeBetween('-50 years','-20 years'),

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string("type")->nullable();
             $table->string("status")->nullable();
             $table->integer("qty")->default(0);
+            $table->boolean("paid_leave")->default(true);
             $table->tinyText("remark")->nullable();
             $table->timestamps();
         });

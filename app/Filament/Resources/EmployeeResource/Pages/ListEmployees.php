@@ -2,13 +2,19 @@
 
 namespace App\Filament\Resources\EmployeeResource\Pages;
 
+use App\Filament\Exports\EmployeeExporter;
 use App\Filament\Resources\EmployeeResource;
-use Carbon\Carbon;
+use App\Helpers\LeaveHelper;
+use App\Models\Employee;
 use Filament\Actions;
+use Filament\Forms\Components\Checkbox;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Get;
 use Filament\Pages\Concerns\ExposesTableToWidgets;
 use Filament\Resources\Components\Tab;
 use Filament\Resources\Pages\ListRecords;
-use Filament\Tables\Table;
+use Filament\Tables\Actions\ExportAction;
 use Illuminate\Support\Facades\DB;
 
 class ListEmployees extends ListRecords
@@ -21,6 +27,46 @@ class ListEmployees extends ListRecords
     {
         return [
             Actions\CreateAction::make(),
+            Actions\ExportAction::make()->exporter(EmployeeExporter::class),
+            Actions\Action::make("leave_balance")
+                ->form([
+                    Checkbox::make("all")
+                        ->reactive()
+                        ->helperText("All active employees (none probation period employees)")
+                        ->default(false),
+                    Select::make("employee_ids")
+                        ->options(Employee::query()
+                            ->where("active",true)
+                            ->where("hired_date","<=",now()->subMonth(3))
+                            ->pluck("name","id"))
+                        ->searchable()
+                        ->label("Employees")
+                        ->multiple()
+                        ->visible(fn(Get $get)=>!$get("all"))
+                        ->required(),
+
+                    TextInput::make("amount")
+                        ->numeric()
+                        ->default(18)
+                        ->suffix("days")
+                        ->required(),
+                ])
+                ->action(function (array $data){
+                    $employees = [];
+                    if($data["all"]){
+                        $employees = Employee::query()
+                            ->where("active",true)
+                            ->where("hired_date","<=",now()->subMonth(3))->get();
+                    }else{
+                        $employees = Employee::query()->whereIn("id",$data["employee_ids"])->get();
+                    }
+
+                    $employees->each(function ($employee) use($data){
+                        LeaveHelper::topup($employee,$data["amount"]);
+                    });
+                })
+                ->requiresConfirmation(),
+
         ];
     }
 

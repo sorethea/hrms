@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('name')->index();
             $table->string('name_kh')->nullable();
             $table->string('position')->nullable();
+            $table->string('avatar_url')->nullable();
             $table->date('date_of_birth');
             $table->date('hired_date');
             $table->string('type')->nullable();
@@ -37,7 +38,11 @@ return new class extends Migration
             $table->foreignId('report_to')->index()->nullable();
             $table->foreignId('ou_id')->index()->nullable();
             $table->foreignId('category_id')->index()->nullable();
-            $table->json('properties')->nullable();
+            $table->json('dependencies')->nullable();
+            $table->json('educations')->nullable();
+            $table->json('skills')->nullable();
+            $table->json('attached_files')->nullable();
+            $table->json('work_experiences')->nullable();
             $table->boolean('active');
             $table->timestamps();
         });

@@ -1,28 +1,20 @@
 <?php
 
-namespace App\Filament\Resources\Shield\RoleResource\Pages;
+namespace Sorethea\Core\Resources\RoleResource\Pages;
 
-use App\Filament\Resources\Shield\RoleResource;
 use BezhanSalleh\FilamentShield\Support\Utils;
-use Filament\Actions;
-use Filament\Resources\Pages\EditRecord;
+use Filament\Resources\Pages\CreateRecord;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
+use Sorethea\Core\Resources\RoleResource;
 
-class EditRole extends EditRecord
+class CreateRole extends CreateRecord
 {
     protected static string $resource = RoleResource::class;
 
     public Collection $permissions;
 
-    protected function getActions(): array
-    {
-        return [
-            Actions\DeleteAction::make(),
-        ];
-    }
-
-    protected function mutateFormDataBeforeSave(array $data): array
+    protected function mutateFormDataBeforeCreate(array $data): array
     {
         $this->permissions = collect($data)
             ->filter(function ($permission, $key) {
@@ -35,11 +27,12 @@ class EditRole extends EditRecord
         return Arr::only($data, ['name', 'guard_name']);
     }
 
-    protected function afterSave(): void
+    protected function afterCreate(): void
     {
         $permissionModels = collect();
         $this->permissions->each(function ($permission) use ($permissionModels) {
             $permissionModels->push(Utils::getPermissionModel()::firstOrCreate([
+                /** @phpstan-ignore-next-line */
                 'name' => $permission,
                 'guard_name' => $this->data['guard_name'],
             ]));

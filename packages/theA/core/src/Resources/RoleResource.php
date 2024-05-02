@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Filament\Resources\Shield;
+namespace Sorethea\Core\Resources;
 
 use BezhanSalleh\FilamentShield\Contracts\HasShieldPermissions;
 use BezhanSalleh\FilamentShield\Facades\FilamentShield;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
-use App\Filament\Resources\Shield\RoleResource\Pages;
 use BezhanSalleh\FilamentShield\Support\Utils;
 use Filament\Forms;
 use Filament\Forms\Components\Component;
@@ -130,10 +129,10 @@ class RoleResource extends Resource implements HasShieldPermissions
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListRoles::route('/'),
-            'create' => Pages\CreateRole::route('/create'),
-            'view' => Pages\ViewRole::route('/{record}'),
-            'edit' => Pages\EditRole::route('/{record}/edit'),
+            'index' => \Sorethea\Core\Resources\RoleResource\Pages\ListRoles::route('/'),
+            'create' => \Sorethea\Core\Resources\RoleResource\Pages\CreateRole::route('/create'),
+            'view' => \Sorethea\Core\Resources\RoleResource\Pages\ViewRole::route('/{record}'),
+            'edit' => \Sorethea\Core\Resources\RoleResource\Pages\EditRole::route('/{record}/edit'),
         ];
     }
 
@@ -171,7 +170,7 @@ class RoleResource extends Resource implements HasShieldPermissions
 
     public static function getNavigationIcon(): string
     {
-        return __('filament-shield::filament-shield.nav.role.icon');
+        return config("the-a-core.icons.roles");
     }
 
     public static function getNavigationSort(): ?int

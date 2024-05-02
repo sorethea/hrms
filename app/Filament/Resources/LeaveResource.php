@@ -2,12 +2,15 @@
 
 namespace App\Filament\Resources;
 
+use App\Filament\Resources\EmployeeResource\RelationManagers\LeavesRelationManager;
 use App\Filament\Resources\LeaveResource\Pages;
 use App\Filament\Resources\LeaveResource\RelationManagers;
+use App\Helpers\LeaveHelper;
 use App\Models\Holiday;
 use App\Models\Leave;
 use App\Traits\LeaveTrait;
 use Carbon\Carbon;
+use Filament\Actions\ViewAction;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Notifications\Notification;
@@ -15,7 +18,9 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Monolog\Level;
 
 class LeaveResource extends Resource
 {
@@ -58,10 +63,10 @@ class LeaveResource extends Resource
                     Forms\Components\Select::make('type')
                         ->options(fn()=>config("hr.leave.type"))
                         ->default("annual_leave"),
-//                    Forms\Components\Select::make('status')
-//                        ->options(fn()=>config("hr.leave.status"))
-//                        ->hiddenOn('create')
-//                        ->default("approved"),
+                    Forms\Components\Select::make('status')
+                        ->options(fn()=>config("hr.leave.status"))
+                        ->visibleOn('view')
+                        ->default("approved"),
                     Forms\Components\TextInput::make('qty')
                         ->helperText("Number of leave taken in day")
                         ->numeric(),
@@ -100,14 +105,19 @@ class LeaveResource extends Resource
                         "pending"=>"info",
                         "approved"=>"success",
                         "rejected"=>"danger",
+                        "cancelled"=>"warning",
                     })
                     ->searchable(),
                 Tables\Columns\TextColumn::make('qty')
                     ->numeric()
                     ->suffix(fn($record)=>$record->qty == 1?"day":"days")
                     ->sortable(),
-                Tables\Columns\TextColumn::make('balance')
+                Tables\Columns\TextColumn::make('employee.leave_balance')
+                    ->label("Leave Balance")
+                    ->suffix(" day(s)")
                     ->numeric(),
+                Tables\Columns\IconColumn::make('paid_leave')
+                    ->boolean(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -121,11 +131,25 @@ class LeaveResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\ActionGroup::make(array_merge([
+                    Tables\Actions\ViewAction::make()
+                    //Tables\Actions\EditAction::make(),
+
+                ],self::getLeaveActions())),
+
+
             ])
             ->bulkActions([
+
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                    //Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\BulkAction::make("approve")
+                        ->icon("heroicon-o-check")
+                        ->color("success")
+                        ->requiresConfirmation()
+                        ->action(fn(Collection $records)=>$records->each(function($record){
+                            if($record->status=="pending") LeaveHelper::approve($record);
+                        })),
                 ]),
             ]);
     }
@@ -133,21 +157,46 @@ class LeaveResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            //RelationManagers\TransactionsRelationManager::class,
         ];
     }
 
     public static function getPages(): array
     {
-        return [
+        return array(
             'index' => Pages\ListLeaves::route('/'),
             'create' => Pages\CreateLeave::route('/create'),
             'edit' => Pages\EditLeave::route('/{record}/edit'),
-        ];
+            'view' => Pages\ViewLeave::route('/{record}'),
+        );
     }
 
     public static function getNavigationGroup(): ?string
     {
         return trans('hr.human_resources');
+    }
+
+    public static function getLeaveActions(): array
+    {
+        return [
+            Tables\Actions\Action::make("approve")
+                ->icon("heroicon-o-check")
+                ->color("success")
+                ->requiresConfirmation()
+                ->visible(fn(Leave $leave)=>$leave->status=="pending")
+                ->action(fn(Leave $record)=>LeaveHelper::approve($record)),
+            Tables\Actions\Action::make("reject")
+                ->icon("heroicon-o-no-symbol")
+                ->color('danger')
+                ->requiresConfirmation()
+                ->visible(fn(Leave $leave)=>$leave->status=="approved")
+                ->action(fn(Leave $record)=>LeaveHelper::reject($record)),
+            Tables\Actions\Action::make("cancel")
+                ->icon("heroicon-o-no-symbol")
+                ->color('warning')
+                ->requiresConfirmation()
+                ->visible(fn(Leave $leave)=>$leave->status=="pending")
+                ->action(fn(Leave $record)=>LeaveHelper::cancel($record)),
+        ];
     }
 }

@@ -1,0 +1,21 @@
+{
+    "name": "sorethea/hrms",
+    "description": "Filament plugin for HRMS.",
+    "type": "plugin",
+    "require": {
+
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Sorethea\\Hrms\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Sorethea OK",
+            "email": "sorethea@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}

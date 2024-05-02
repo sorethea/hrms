@@ -12,21 +12,8 @@ class LeaveObserver
      */
     public function created(Leave $leave): void
     {
-        $balance = $leave->employee->leave_balance??0;
-        $lastBalance = $balance - $leave->qty;
-        Transaction::create([
-            "reference_id"=>$leave->id,
-            "reference_type"=>get_class($leave),
-            "balance"=>$balance,
-            "last_balance"=>$lastBalance,
-            "qty"=>$leave->qty,
-            "type"=>"Leave Request",
-            "remark"=>"Created"
-        ]);
         $leave->status = "pending";
         $leave->save();
-        $leave->employee->leave_balance = $lastBalance;
-        $leave->employee->save();
     }
 
     /**
@@ -34,7 +21,7 @@ class LeaveObserver
      */
     public function updated(Leave $leave): void
     {
-        //
+
     }
 
     /**
@@ -60,4 +47,5 @@ class LeaveObserver
     {
         //
     }
+
 }
