@@ -22,7 +22,7 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Jeffgreco13\FilamentBreezy\BreezyCore;
 use Sorethea\Core\CorePlugin;
 use Sorethea\Hrms\HrmsPlugin;
-use Sorethea\TheARestaurant\RestaurantPlugin;
+use Sorethea\Restaurant\RestaurantPlugin;
 
 class AdminPanelProvider extends PanelProvider
 {

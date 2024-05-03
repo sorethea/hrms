@@ -21,7 +21,7 @@
         "pxlrbt/filament-activity-log": "^1.1.1",
         "sorethea/core": "dev-main",
         "sorethea/hrms": "dev-main",
-        "sorethea/the-a-restaurant": "dev-main",
+        "sorethea/restaurant": "dev-main",
         "spatie/laravel-activitylog": "^4.8"
     },
     "require-dev": {

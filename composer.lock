@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c1c0376418ec8624ff1483534e929d3c",
+    "content-hash": "b90cd9873f79fdf916fdf7b9c70eceec",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -5653,17 +5653,17 @@
             "time": "2024-05-03T09:12:56+00:00"
         },
         {
-            "name": "sorethea/the-a-restaurant",
+            "name": "sorethea/restaurant",
             "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sorethea/the-a-restaurant.git",
-                "reference": "a8ddbdf16b78d1ee835902327f75fa2964ff94d9"
+                "reference": "3de4a976d1ca8862a54413d02834b3dd006bf515"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sorethea/the-a-restaurant/zipball/a8ddbdf16b78d1ee835902327f75fa2964ff94d9",
-                "reference": "a8ddbdf16b78d1ee835902327f75fa2964ff94d9",
+                "url": "https://api.github.com/repos/sorethea/the-a-restaurant/zipball/3de4a976d1ca8862a54413d02834b3dd006bf515",
+                "reference": "3de4a976d1ca8862a54413d02834b3dd006bf515",
                 "shasum": ""
             },
             "require": {
@@ -5673,7 +5673,7 @@
             "type": "plugin",
             "autoload": {
                 "psr-4": {
-                    "Sorethea\\TheARestaurant\\": "src/"
+                    "Sorethea\\Restaurant\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -5691,7 +5691,7 @@
                 "issues": "https://github.com/sorethea/the-a-restaurant/issues",
                 "source": "https://github.com/sorethea/the-a-restaurant/tree/main"
             },
-            "time": "2024-05-03T03:45:43+00:00"
+            "time": "2024-05-03T09:38:35+00:00"
         },
         {
             "name": "spatie/color",
@@ -11126,7 +11126,7 @@
     "stability-flags": {
         "sorethea/core": 20,
         "sorethea/hrms": 20,
-        "sorethea/the-a-restaurant": 20
+        "sorethea/restaurant": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
