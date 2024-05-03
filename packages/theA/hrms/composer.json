@@ -1,6 +1,6 @@
 {
     "name": "sorethea/hrms",
-    "description": "Filament plugin for HRMS.",
+    "description": "Filament plugin for Hrms.",
     "type": "plugin",
     "require": {
         "sorethea/core": "dev-main",
@@ -10,6 +10,13 @@
     "autoload": {
         "psr-4": {
             "Sorethea\\Hrms\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Sorethea\\Hrms\\HrmsServiceProvider"
+            ]
         }
     },
     "authors": [

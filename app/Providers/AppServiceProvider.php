@@ -2,8 +2,6 @@
 
 namespace App\Providers;
 
-use App\Models\Leave;
-use App\Observers\LeaveObserver;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider

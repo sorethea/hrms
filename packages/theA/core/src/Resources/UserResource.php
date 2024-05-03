@@ -85,6 +85,9 @@ class UserResource extends Resource implements HasShieldPermissions
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\Action::make('activities')
+                    ->url(fn($record)=>self::getUrl('activities',['record'=>$record]))
+                    ->icon('heroicon-o-bolt'),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -105,6 +108,7 @@ class UserResource extends Resource implements HasShieldPermissions
         return [
             'index' => UserResource\Pages\ListUsers::route('/'),
             'create' => UserResource\Pages\CreateUser::route('/create'),
+            'activities'=>UserResource\Pages\ListUserActivities::route('/{record}/activities'),
             'edit' => UserResource\Pages\EditUser::route('/{record}/edit'),
         ];
     }

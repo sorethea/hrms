@@ -21,6 +21,8 @@ use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Jeffgreco13\FilamentBreezy\BreezyCore;
 use Sorethea\Core\CorePlugin;
+use Sorethea\Hrms\HrmsPlugin;
+use Sorethea\TheARestaurant\RestaurantPlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -41,17 +43,9 @@ class AdminPanelProvider extends PanelProvider
             ])
 
             ->plugins([
-                FilamentShieldPlugin::make(),
-                BreezyCore::make()
-                    ->myProfile(
-                        hasAvatars: true,
-
-                    )
-                    ->avatarUploadComponent(fn() => FileUpload::make('avatar_url')
-                        ->avatar()
-                        ->directory('profile-photos')
-                        ->disk('public')),
                 CorePlugin::make(),
+                RestaurantPlugin::make(),
+                HrmsPlugin::make(),
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
