@@ -13,7 +13,7 @@ return [
     ],
 
     'auth_provider_model' => [
-        'fqcn' => 'App\\Models\\User',
+        'fqcn' => 'Sorethea\\Core\\Models\\User',
     ],
 
     'super_admin' => [
