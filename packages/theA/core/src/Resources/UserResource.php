@@ -2,7 +2,6 @@
 
 namespace Sorethea\Core\Resources;
 
-use App\Models\User;
 use BezhanSalleh\FilamentShield\Contracts\HasShieldPermissions;
 use BezhanSalleh\FilamentShield\Support\Utils;
 use Filament\Forms;
@@ -11,6 +10,7 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Support\Facades\Hash;
+use Sorethea\Core\Models\User;
 
 class UserResource extends Resource implements HasShieldPermissions
 {

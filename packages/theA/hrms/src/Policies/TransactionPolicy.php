@@ -4,9 +4,9 @@ namespace Sorethea\Hrms\Policies;
 
 use Illuminate\Auth\Access\HandlesAuthorization;
 use Sorethea\Core\Models\User;
-use Sorethea\Hrms\Models\Employee;
+use Sorethea\Hrms\Models\Transaction;
 
-class EmployeePolicy
+class TransactionPolicy
 {
     use HandlesAuthorization;
 
@@ -15,15 +15,15 @@ class EmployeePolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->can('view_any_employee');
+        return $user->can('view_any_transaction');
     }
 
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Employee $employee): bool
+    public function view(User $user, Transaction $transaction): bool
     {
-        return $user->can('view_employee');
+        return $user->can('view_transaction');
     }
 
     /**
@@ -31,23 +31,23 @@ class EmployeePolicy
      */
     public function create(User $user): bool
     {
-        return $user->can('create_employee');
+        return $user->can('create_transaction');
     }
 
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Employee $employee): bool
+    public function update(User $user, Transaction $transaction): bool
     {
-        return $user->can('update_employee');
+        return $user->can('update_transaction');
     }
 
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Employee $employee): bool
+    public function delete(User $user, Transaction $transaction): bool
     {
-        return $user->can('delete_employee');
+        return $user->can('delete_transaction');
     }
 
     /**
@@ -55,13 +55,13 @@ class EmployeePolicy
      */
     public function deleteAny(User $user): bool
     {
-        return $user->can('delete_any_employee');
+        return $user->can('delete_any_transaction');
     }
 
     /**
      * Determine whether the user can permanently delete.
      */
-    public function forceDelete(User $user, Employee $employee): bool
+    public function forceDelete(User $user, Transaction $transaction): bool
     {
         return $user->can('{{ ForceDelete }}');
     }
@@ -77,7 +77,7 @@ class EmployeePolicy
     /**
      * Determine whether the user can restore.
      */
-    public function restore(User $user, Employee $employee): bool
+    public function restore(User $user, Transaction $transaction): bool
     {
         return $user->can('{{ Restore }}');
     }
@@ -93,7 +93,7 @@ class EmployeePolicy
     /**
      * Determine whether the user can replicate.
      */
-    public function replicate(User $user, Employee $employee): bool
+    public function replicate(User $user, Transaction $transaction): bool
     {
         return $user->can('{{ Replicate }}');
     }

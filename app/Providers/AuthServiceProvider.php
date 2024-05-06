@@ -4,7 +4,7 @@ namespace App\Providers;
 
 // use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
-use Sorethea\Hrms\Policies\RolePolicy;
+use Sorethea\Core\Policies\RolePolicy;
 use Spatie\Permission\Models\Role;
 
 class AuthServiceProvider extends ServiceProvider
