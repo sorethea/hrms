@@ -544,16 +544,16 @@
         },
         {
             "name": "danharrin/livewire-rate-limiting",
-            "version": "v1.3.0",
+            "version": "v1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/danharrin/livewire-rate-limiting.git",
-                "reference": "bf16003f0d977b5a41071526d697eec94ac41735"
+                "reference": "1a1b299e20de61f88ed6e94ea0bbcfc33aab1ddb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/danharrin/livewire-rate-limiting/zipball/bf16003f0d977b5a41071526d697eec94ac41735",
-                "reference": "bf16003f0d977b5a41071526d697eec94ac41735",
+                "url": "https://api.github.com/repos/danharrin/livewire-rate-limiting/zipball/1a1b299e20de61f88ed6e94ea0bbcfc33aab1ddb",
+                "reference": "1a1b299e20de61f88ed6e94ea0bbcfc33aab1ddb",
                 "shasum": ""
             },
             "require": {
@@ -594,7 +594,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-01-21T14:53:34+00:00"
+            "time": "2024-05-06T09:10:03+00:00"
         },
         {
             "name": "dasprid/enum",
@@ -1417,17 +1417,80 @@
             "time": "2023-10-06T06:47:41+00:00"
         },
         {
-            "name": "filament/actions",
-            "version": "v3.2.73",
+            "name": "fakerphp/faker",
+            "version": "v1.23.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/filamentphp/actions.git",
-                "reference": "2ff960d4b0ec9c852cbb101eb2fe886323f59a78"
+                "url": "https://github.com/FakerPHP/Faker.git",
+                "reference": "bfb4fe148adbf78eff521199619b93a52ae3554b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/actions/zipball/2ff960d4b0ec9c852cbb101eb2fe886323f59a78",
-                "reference": "2ff960d4b0ec9c852cbb101eb2fe886323f59a78",
+                "url": "https://api.github.com/repos/FakerPHP/Faker/zipball/bfb4fe148adbf78eff521199619b93a52ae3554b",
+                "reference": "bfb4fe148adbf78eff521199619b93a52ae3554b",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4 || ^8.0",
+                "psr/container": "^1.0 || ^2.0",
+                "symfony/deprecation-contracts": "^2.2 || ^3.0"
+            },
+            "conflict": {
+                "fzaninotto/faker": "*"
+            },
+            "require-dev": {
+                "bamarni/composer-bin-plugin": "^1.4.1",
+                "doctrine/persistence": "^1.3 || ^2.0",
+                "ext-intl": "*",
+                "phpunit/phpunit": "^9.5.26",
+                "symfony/phpunit-bridge": "^5.4.16"
+            },
+            "suggest": {
+                "doctrine/orm": "Required to use Faker\\ORM\\Doctrine",
+                "ext-curl": "Required by Faker\\Provider\\Image to download images.",
+                "ext-dom": "Required by Faker\\Provider\\HtmlLorem for generating random HTML.",
+                "ext-iconv": "Required by Faker\\Provider\\ru_RU\\Text::realText() for generating real Russian text.",
+                "ext-mbstring": "Required for multibyte Unicode string functionality."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Faker\\": "src/Faker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "François Zaninotto"
+                }
+            ],
+            "description": "Faker is a PHP library that generates fake data for you.",
+            "keywords": [
+                "data",
+                "faker",
+                "fixtures"
+            ],
+            "support": {
+                "issues": "https://github.com/FakerPHP/Faker/issues",
+                "source": "https://github.com/FakerPHP/Faker/tree/v1.23.1"
+            },
+            "time": "2024-01-02T13:46:09+00:00"
+        },
+        {
+            "name": "filament/actions",
+            "version": "v3.2.76",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/filamentphp/actions.git",
+                "reference": "36292c4e811b1c90605ce207f1fbeb0452e5936c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/filamentphp/actions/zipball/36292c4e811b1c90605ce207f1fbeb0452e5936c",
+                "reference": "36292c4e811b1c90605ce207f1fbeb0452e5936c",
                 "shasum": ""
             },
             "require": {
@@ -1467,20 +1530,20 @@
                 "issues": "https://github.com/filamentphp/filament/issues",
                 "source": "https://github.com/filamentphp/filament"
             },
-            "time": "2024-05-03T12:25:51+00:00"
+            "time": "2024-05-08T16:21:06+00:00"
         },
         {
             "name": "filament/filament",
-            "version": "v3.2.73",
+            "version": "v3.2.76",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/panels.git",
-                "reference": "be5a86ff4e6805910e43b055c1e67d2894ab47a7"
+                "reference": "80b4cfb0ab7e858aada7439e8f002e1f896f3d65"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/panels/zipball/be5a86ff4e6805910e43b055c1e67d2894ab47a7",
-                "reference": "be5a86ff4e6805910e43b055c1e67d2894ab47a7",
+                "url": "https://api.github.com/repos/filamentphp/panels/zipball/80b4cfb0ab7e858aada7439e8f002e1f896f3d65",
+                "reference": "80b4cfb0ab7e858aada7439e8f002e1f896f3d65",
                 "shasum": ""
             },
             "require": {
@@ -1532,20 +1595,20 @@
                 "issues": "https://github.com/filamentphp/filament/issues",
                 "source": "https://github.com/filamentphp/filament"
             },
-            "time": "2024-05-03T12:25:56+00:00"
+            "time": "2024-05-08T16:21:17+00:00"
         },
         {
             "name": "filament/forms",
-            "version": "v3.2.73",
+            "version": "v3.2.76",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/forms.git",
-                "reference": "d747dd60968269e4529983906b5aa62737a825ca"
+                "reference": "ce53bc7fe494a2f5129d6bdeb707b0c1099226bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/forms/zipball/d747dd60968269e4529983906b5aa62737a825ca",
-                "reference": "d747dd60968269e4529983906b5aa62737a825ca",
+                "url": "https://api.github.com/repos/filamentphp/forms/zipball/ce53bc7fe494a2f5129d6bdeb707b0c1099226bb",
+                "reference": "ce53bc7fe494a2f5129d6bdeb707b0c1099226bb",
                 "shasum": ""
             },
             "require": {
@@ -1588,20 +1651,20 @@
                 "issues": "https://github.com/filamentphp/filament/issues",
                 "source": "https://github.com/filamentphp/filament"
             },
-            "time": "2024-05-03T12:25:52+00:00"
+            "time": "2024-05-09T08:34:11+00:00"
         },
         {
             "name": "filament/infolists",
-            "version": "v3.2.73",
+            "version": "v3.2.76",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/infolists.git",
-                "reference": "612497be1c0e5b8b1e0ef9eeefe4754baab54271"
+                "reference": "377ae7abbe2199b512580543764a581d61f7cbfd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/infolists/zipball/612497be1c0e5b8b1e0ef9eeefe4754baab54271",
-                "reference": "612497be1c0e5b8b1e0ef9eeefe4754baab54271",
+                "url": "https://api.github.com/repos/filamentphp/infolists/zipball/377ae7abbe2199b512580543764a581d61f7cbfd",
+                "reference": "377ae7abbe2199b512580543764a581d61f7cbfd",
                 "shasum": ""
             },
             "require": {
@@ -1639,20 +1702,20 @@
                 "issues": "https://github.com/filamentphp/filament/issues",
                 "source": "https://github.com/filamentphp/filament"
             },
-            "time": "2024-04-28T08:39:09+00:00"
+            "time": "2024-05-09T08:34:11+00:00"
         },
         {
             "name": "filament/notifications",
-            "version": "v3.2.73",
+            "version": "v3.2.76",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/notifications.git",
-                "reference": "f06016bea87b8b688eeafbea19f24720062cd87e"
+                "reference": "646ed10673b03144ff8341a6c42bea04f6443b81"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/notifications/zipball/f06016bea87b8b688eeafbea19f24720062cd87e",
-                "reference": "f06016bea87b8b688eeafbea19f24720062cd87e",
+                "url": "https://api.github.com/repos/filamentphp/notifications/zipball/646ed10673b03144ff8341a6c42bea04f6443b81",
+                "reference": "646ed10673b03144ff8341a6c42bea04f6443b81",
                 "shasum": ""
             },
             "require": {
@@ -1691,20 +1754,20 @@
                 "issues": "https://github.com/filamentphp/filament/issues",
                 "source": "https://github.com/filamentphp/filament"
             },
-            "time": "2024-05-03T12:25:54+00:00"
+            "time": "2024-05-08T16:21:24+00:00"
         },
         {
             "name": "filament/support",
-            "version": "v3.2.73",
+            "version": "v3.2.76",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/support.git",
-                "reference": "49637c225f9eb72380a3dc54e9fd951563955770"
+                "reference": "2ed906a82070c07da5367ae71f52826698d17b9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/support/zipball/49637c225f9eb72380a3dc54e9fd951563955770",
-                "reference": "49637c225f9eb72380a3dc54e9fd951563955770",
+                "url": "https://api.github.com/repos/filamentphp/support/zipball/2ed906a82070c07da5367ae71f52826698d17b9e",
+                "reference": "2ed906a82070c07da5367ae71f52826698d17b9e",
                 "shasum": ""
             },
             "require": {
@@ -1749,20 +1812,20 @@
                 "issues": "https://github.com/filamentphp/filament/issues",
                 "source": "https://github.com/filamentphp/filament"
             },
-            "time": "2024-05-03T12:26:17+00:00"
+            "time": "2024-05-09T08:34:31+00:00"
         },
         {
             "name": "filament/tables",
-            "version": "v3.2.73",
+            "version": "v3.2.76",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/tables.git",
-                "reference": "773f0ff40f5a656432dbee41058087175c53813b"
+                "reference": "8d66675fdf45e246d11bdcf7eabb7bb6643fd6fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/tables/zipball/773f0ff40f5a656432dbee41058087175c53813b",
-                "reference": "773f0ff40f5a656432dbee41058087175c53813b",
+                "url": "https://api.github.com/repos/filamentphp/tables/zipball/8d66675fdf45e246d11bdcf7eabb7bb6643fd6fa",
+                "reference": "8d66675fdf45e246d11bdcf7eabb7bb6643fd6fa",
                 "shasum": ""
             },
             "require": {
@@ -1802,20 +1865,20 @@
                 "issues": "https://github.com/filamentphp/filament/issues",
                 "source": "https://github.com/filamentphp/filament"
             },
-            "time": "2024-05-03T12:26:18+00:00"
+            "time": "2024-05-08T16:21:32+00:00"
         },
         {
             "name": "filament/widgets",
-            "version": "v3.2.73",
+            "version": "v3.2.76",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/widgets.git",
-                "reference": "0b7b774981725e8ef6786fdfccb1105bf794d2ba"
+                "reference": "65ec747c3eac23664a2bcbd6adb61babc0c41b51"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/widgets/zipball/0b7b774981725e8ef6786fdfccb1105bf794d2ba",
-                "reference": "0b7b774981725e8ef6786fdfccb1105bf794d2ba",
+                "url": "https://api.github.com/repos/filamentphp/widgets/zipball/65ec747c3eac23664a2bcbd6adb61babc0c41b51",
+                "reference": "65ec747c3eac23664a2bcbd6adb61babc0c41b51",
                 "shasum": ""
             },
             "require": {
@@ -1846,7 +1909,7 @@
                 "issues": "https://github.com/filamentphp/filament/issues",
                 "source": "https://github.com/filamentphp/filament"
             },
-            "time": "2024-05-03T12:26:16+00:00"
+            "time": "2024-05-08T16:21:40+00:00"
         },
         {
             "name": "flowframe/laravel-trend",
@@ -2468,16 +2531,16 @@
         },
         {
             "name": "jeffgreco13/filament-breezy",
-            "version": "v2.4.0",
+            "version": "v2.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jeffgreco13/filament-breezy.git",
-                "reference": "d115260cdd84ab7c73cc27aacb77244e0d7ba8f8"
+                "reference": "84f4f5b59ca21ad308f2a8ed1cf2a04355f2dc66"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jeffgreco13/filament-breezy/zipball/d115260cdd84ab7c73cc27aacb77244e0d7ba8f8",
-                "reference": "d115260cdd84ab7c73cc27aacb77244e0d7ba8f8",
+                "url": "https://api.github.com/repos/jeffgreco13/filament-breezy/zipball/84f4f5b59ca21ad308f2a8ed1cf2a04355f2dc66",
+                "reference": "84f4f5b59ca21ad308f2a8ed1cf2a04355f2dc66",
                 "shasum": ""
             },
             "require": {
@@ -2538,9 +2601,55 @@
             ],
             "support": {
                 "issues": "https://github.com/jeffgreco13/filament-breezy/issues",
-                "source": "https://github.com/jeffgreco13/filament-breezy/tree/v2.4.0"
+                "source": "https://github.com/jeffgreco13/filament-breezy/tree/v2.4.1"
             },
-            "time": "2024-04-29T19:48:06+00:00"
+            "time": "2024-05-06T17:04:38+00:00"
+        },
+        {
+            "name": "jzonta/faker-restaurant",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jzonta/FakerRestaurant.git",
+                "reference": "4e10ff08dc8ca08603a3daf7abe48d412b013cf4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jzonta/FakerRestaurant/zipball/4e10ff08dc8ca08603a3daf7abe48d412b013cf4",
+                "reference": "4e10ff08dc8ca08603a3daf7abe48d412b013cf4",
+                "shasum": ""
+            },
+            "require": {
+                "fakerphp/faker": "^1.9.1",
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.17",
+                "phpstan/phpstan": "^0.12.66",
+                "phpunit/phpunit": "^9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "FakerRestaurant\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "João Zonta"
+                }
+            ],
+            "description": "Food and Beverage names generate using fakerphp/faker",
+            "homepage": "https://github.com/jzonta/FakerRestaurant",
+            "support": {
+                "issues": "https://github.com/jzonta/FakerRestaurant/issues",
+                "source": "https://github.com/jzonta/FakerRestaurant/tree/v2.0.1"
+            },
+            "time": "2021-11-15T11:21:22+00:00"
         },
         {
             "name": "kirschbaum-development/eloquent-power-joins",
@@ -2606,16 +2715,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v11.6.0",
+            "version": "v11.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "e090ee638ebd4ce221d8bad43b49bbf59ea70ae5"
+                "reference": "e5ac72f513f635f208024aa76b8a04efc1b47f93"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/e090ee638ebd4ce221d8bad43b49bbf59ea70ae5",
-                "reference": "e090ee638ebd4ce221d8bad43b49bbf59ea70ae5",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/e5ac72f513f635f208024aa76b8a04efc1b47f93",
+                "reference": "e5ac72f513f635f208024aa76b8a04efc1b47f93",
                 "shasum": ""
             },
             "require": {
@@ -2807,7 +2916,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2024-04-30T13:30:08+00:00"
+            "time": "2024-05-07T13:41:51+00:00"
         },
         {
             "name": "laravel/prompts",
@@ -4359,16 +4468,16 @@
         },
         {
             "name": "openspout/openspout",
-            "version": "v4.23.0",
+            "version": "v4.24.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/openspout/openspout.git",
-                "reference": "28f6a0e45acc3377f34c26cc3866e21f0447e0c8"
+                "reference": "51f2a627d4cdcdb06eb451c6f434daeb190c4afb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/openspout/openspout/zipball/28f6a0e45acc3377f34c26cc3866e21f0447e0c8",
-                "reference": "28f6a0e45acc3377f34c26cc3866e21f0447e0c8",
+                "url": "https://api.github.com/repos/openspout/openspout/zipball/51f2a627d4cdcdb06eb451c6f434daeb190c4afb",
+                "reference": "51f2a627d4cdcdb06eb451c6f434daeb190c4afb",
                 "shasum": ""
             },
             "require": {
@@ -4382,13 +4491,13 @@
             },
             "require-dev": {
                 "ext-zlib": "*",
-                "friendsofphp/php-cs-fixer": "^3.46.0",
-                "infection/infection": "^0.27.9",
+                "friendsofphp/php-cs-fixer": "^3.56.0",
+                "infection/infection": "^0.28.1",
                 "phpbench/phpbench": "^1.2.15",
-                "phpstan/phpstan": "^1.10.55",
-                "phpstan/phpstan-phpunit": "^1.3.15",
-                "phpstan/phpstan-strict-rules": "^1.5.2",
-                "phpunit/phpunit": "^10.5.5"
+                "phpstan/phpstan": "^1.10.67",
+                "phpstan/phpstan-phpunit": "^1.3.16",
+                "phpstan/phpstan-strict-rules": "^1.5.5",
+                "phpunit/phpunit": "^10.5.20"
             },
             "suggest": {
                 "ext-iconv": "To handle non UTF-8 CSV files (if \"php-mbstring\" is not already installed or is too limited)",
@@ -4436,7 +4545,7 @@
             ],
             "support": {
                 "issues": "https://github.com/openspout/openspout/issues",
-                "source": "https://github.com/openspout/openspout/tree/v4.23.0"
+                "source": "https://github.com/openspout/openspout/tree/v4.24.0"
             },
             "funding": [
                 {
@@ -4448,20 +4557,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-01-09T09:30:37+00:00"
+            "time": "2024-05-10T09:06:16+00:00"
         },
         {
             "name": "paragonie/constant_time_encoding",
-            "version": "v2.6.3",
+            "version": "v2.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/constant_time_encoding.git",
-                "reference": "58c3f47f650c94ec05a151692652a868995d2938"
+                "reference": "52a0d99e69f56b9ec27ace92ba56897fe6993105"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/constant_time_encoding/zipball/58c3f47f650c94ec05a151692652a868995d2938",
-                "reference": "58c3f47f650c94ec05a151692652a868995d2938",
+                "url": "https://api.github.com/repos/paragonie/constant_time_encoding/zipball/52a0d99e69f56b9ec27ace92ba56897fe6993105",
+                "reference": "52a0d99e69f56b9ec27ace92ba56897fe6993105",
                 "shasum": ""
             },
             "require": {
@@ -4515,7 +4624,7 @@
                 "issues": "https://github.com/paragonie/constant_time_encoding/issues",
                 "source": "https://github.com/paragonie/constant_time_encoding"
             },
-            "time": "2022-06-14T06:56:20+00:00"
+            "time": "2024-05-08T12:18:48+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -4898,20 +5007,20 @@
         },
         {
             "name": "psr/http-factory",
-            "version": "1.0.2",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/http-factory.git",
-                "reference": "e616d01114759c4c489f93b099585439f795fe35"
+                "reference": "2b4765fddfe3b508ac62f829e852b1501d3f6e8a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/http-factory/zipball/e616d01114759c4c489f93b099585439f795fe35",
-                "reference": "e616d01114759c4c489f93b099585439f795fe35",
+                "url": "https://api.github.com/repos/php-fig/http-factory/zipball/2b4765fddfe3b508ac62f829e852b1501d3f6e8a",
+                "reference": "2b4765fddfe3b508ac62f829e852b1501d3f6e8a",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.0.0",
+                "php": ">=7.1",
                 "psr/http-message": "^1.0 || ^2.0"
             },
             "type": "library",
@@ -4935,7 +5044,7 @@
                     "homepage": "https://www.php-fig.org/"
                 }
             ],
-            "description": "Common interfaces for PSR-7 HTTP message factories",
+            "description": "PSR-17: Common interfaces for PSR-7 HTTP message factories",
             "keywords": [
                 "factory",
                 "http",
@@ -4947,9 +5056,9 @@
                 "response"
             ],
             "support": {
-                "source": "https://github.com/php-fig/http-factory/tree/1.0.2"
+                "source": "https://github.com/php-fig/http-factory"
             },
-            "time": "2023-04-10T20:10:41+00:00"
+            "time": "2024-04-15T12:06:14+00:00"
         },
         {
             "name": "psr/http-message",
@@ -5660,19 +5769,28 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sorethea/the-a-restaurant.git",
-                "reference": "3de4a976d1ca8862a54413d02834b3dd006bf515"
+                "reference": "db4a29e9cae00983e8e55a26589fda18fd49ca5a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sorethea/the-a-restaurant/zipball/3de4a976d1ca8862a54413d02834b3dd006bf515",
-                "reference": "3de4a976d1ca8862a54413d02834b3dd006bf515",
+                "url": "https://api.github.com/repos/sorethea/the-a-restaurant/zipball/db4a29e9cae00983e8e55a26589fda18fd49ca5a",
+                "reference": "db4a29e9cae00983e8e55a26589fda18fd49ca5a",
                 "shasum": ""
             },
             "require": {
+                "jzonta/faker-restaurant": "2.0.1",
                 "sorethea/core": "dev-main"
             },
             "default-branch": true,
             "type": "plugin",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Sorethea\\Restaurant\\AuthRestaurantServiceProvider",
+                        "Sorethea\\Restaurant\\RestaurantServiceProvider"
+                    ]
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Sorethea\\Restaurant\\": "src/"
@@ -5693,7 +5811,7 @@
                 "issues": "https://github.com/sorethea/the-a-restaurant/issues",
                 "source": "https://github.com/sorethea/the-a-restaurant/tree/main"
             },
-            "time": "2024-05-03T09:38:35+00:00"
+            "time": "2024-05-13T03:45:07+00:00"
         },
         {
             "name": "spatie/color",
@@ -8685,69 +8803,6 @@
         }
     ],
     "packages-dev": [
-        {
-            "name": "fakerphp/faker",
-            "version": "v1.23.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/FakerPHP/Faker.git",
-                "reference": "bfb4fe148adbf78eff521199619b93a52ae3554b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/FakerPHP/Faker/zipball/bfb4fe148adbf78eff521199619b93a52ae3554b",
-                "reference": "bfb4fe148adbf78eff521199619b93a52ae3554b",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.4 || ^8.0",
-                "psr/container": "^1.0 || ^2.0",
-                "symfony/deprecation-contracts": "^2.2 || ^3.0"
-            },
-            "conflict": {
-                "fzaninotto/faker": "*"
-            },
-            "require-dev": {
-                "bamarni/composer-bin-plugin": "^1.4.1",
-                "doctrine/persistence": "^1.3 || ^2.0",
-                "ext-intl": "*",
-                "phpunit/phpunit": "^9.5.26",
-                "symfony/phpunit-bridge": "^5.4.16"
-            },
-            "suggest": {
-                "doctrine/orm": "Required to use Faker\\ORM\\Doctrine",
-                "ext-curl": "Required by Faker\\Provider\\Image to download images.",
-                "ext-dom": "Required by Faker\\Provider\\HtmlLorem for generating random HTML.",
-                "ext-iconv": "Required by Faker\\Provider\\ru_RU\\Text::realText() for generating real Russian text.",
-                "ext-mbstring": "Required for multibyte Unicode string functionality."
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Faker\\": "src/Faker/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "François Zaninotto"
-                }
-            ],
-            "description": "Faker is a PHP library that generates fake data for you.",
-            "keywords": [
-                "data",
-                "faker",
-                "fixtures"
-            ],
-            "support": {
-                "issues": "https://github.com/FakerPHP/Faker/issues",
-                "source": "https://github.com/FakerPHP/Faker/tree/v1.23.1"
-            },
-            "time": "2024-01-02T13:46:09+00:00"
-        },
         {
             "name": "filp/whoops",
             "version": "2.15.4",
