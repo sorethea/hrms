@@ -25,9 +25,6 @@ class PriceGroupResource extends Resource implements HasShieldPermissions
                     Forms\Components\TextInput::make('name')
                         ->required()
                         ->maxLength(255),
-                    Forms\Components\Select::make('restaurant_id')
-                        ->relationship('restaurant', 'name')
-                        ->required(),
                     Forms\Components\Toggle::make('is_default')
                         ->required(),
                 ])->columns(2),
@@ -41,17 +38,9 @@ class PriceGroupResource extends Resource implements HasShieldPermissions
                 Tables\Columns\TextColumn::make('name')
                     ->label(trans('restaurant::resources.price.name'))
                     ->searchable(),
-                Tables\Columns\TextColumn::make('restaurant.name')
-                    ->label(trans('restaurant::resources.restaurant.singular'))
-                    ->numeric()
-                    ->sortable(),
                 Tables\Columns\IconColumn::make('is_default')
                     ->label(trans('restaurant::resources.price.is_default'))
                     ->boolean(),
-                Tables\Columns\TextColumn::make('prices.counts')
-                    ->label(trans('restaurant::resources.price.plural'))
-                    ->counts('prices')
-                    ->numeric(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
