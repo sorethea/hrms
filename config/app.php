@@ -170,7 +170,9 @@ return [
         App\Providers\Filament\AdminPanelProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        //\Sorethea\Core\CoreServiceProvider::class,
+        \Sorethea\Core\CoreServiceProvider::class,
+        \Sorethea\Hrms\HrmsServiceProvider::class,
+        \Sorethea\Restaurant\RestaurantServiceProvider::class,
     ])->toArray(),
 
     /*

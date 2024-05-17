@@ -14,14 +14,13 @@
         "filament/filament": "^3.2.62",
         "filament/widgets": "^3.2",
         "guzzlehttp/guzzle": "^7.8.1",
+        "jzonta/faker-restaurant": "2.0.1",
         "jeffgreco13/filament-breezy": "^2.3.1",
         "laravel/framework": "^11.0",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9.0",
+        "flowframe/laravel-trend": "^0.2.0",
         "pxlrbt/filament-activity-log": "^1.1.1",
-        "sorethea/core": "dev-main",
-        "sorethea/hrms": "dev-main",
-        "sorethea/restaurant": "dev-main",
         "spatie/laravel-activitylog": "^4.8"
     },
     "require-dev": {
@@ -36,6 +35,9 @@
     "autoload": {
         "psr-4": {
             "App\\": "app/",
+            "Sorethea\\Core\\": "packages/theA/core/src/",
+            "Sorethea\\Hrms\\": "packages/theA/hrms/src/",
+            "Sorethea\\Restaurant\\": "packages/theA/restaurant/src/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
         }

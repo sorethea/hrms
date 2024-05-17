@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('prices', function (Blueprint $table) {
             $table->id();
-            $table->string("name");
-            $table->boolean("is_default");
-            $table->foreignId("restaurant_id");
+            $table->float("price",2)->default(0);
+            $table->foreignId("price_group_id");
+            $table->morphs("model");
             $table->timestamps();
         });
     }

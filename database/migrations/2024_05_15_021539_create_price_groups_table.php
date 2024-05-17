@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('price_items', function (Blueprint $table) {
+        Schema::create('price_groups', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("price_id");
-            $table->morphs("model");
-            $table->float("price",2)->default(0);
+            $table->string("name");
+            $table->boolean("is_default")->default(false);
+            $table->foreignId("restaurant_id");
             $table->timestamps();
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('price_items');
+        Schema::dropIfExists('price_groups');
     }
 };
