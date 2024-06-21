@@ -47,8 +47,18 @@ class EmployeeResource extends Resource implements HasShieldPermissions
                             Forms\Components\Checkbox::make("system_user")
                                 ->reactive()
                                 ->default(false),
-                            Forms\Components\TextInput::make("email")->required(fn(Get $get):bool=>$get('system_user')),
-                            Forms\Components\TextInput::make("phone_number")->required(fn(Get $get):bool=>$get('system_user')),
+                            Forms\Components\TextInput::make("email")
+                                ->required(fn(Get $get):bool=>$get('system_user')),
+                            Forms\Components\TextInput::make("phone_number")
+                                ->required(fn(Get $get):bool=>$get('system_user')),
+//                            Forms\Components\Select::make("user")
+//                                ->searchable()
+//                                ->relationship("user","name")
+//                                ->visible(fn(Get $get):bool=>$get('system_user'))
+//                                ->createOptionForm([
+//
+//                                ])
+//                                ->required(),
                             Forms\Components\Select::make("ou")
                                 ->relationship('ou',"name")
                                 ->label('Department')

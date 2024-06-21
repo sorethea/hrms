@@ -16,8 +16,9 @@ return new class extends Migration
             $table->string("name");
             $table->foreignId("restaurant_id");
             $table->foreignId("price_id");
-            $table->tinyText("location")->nullable();
-            $table->tinyText("contact")->nullable();
+            $table->string("location")->nullable();
+            $table->string("address")->nullable();
+            $table->json("contact")->nullable();
             $table->timestamps();
         });
     }
