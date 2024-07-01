@@ -172,8 +172,8 @@ return [
 
         \Sorethea\Core\CoreServiceProvider::class,
         \Sorethea\Hrms\HrmsServiceProvider::class,
-        \Sorethea\Restaurant\RestaurantServiceProvider::class,
-        \Sorethea\Car\CarServiceProvider::class,
+        //\Sorethea\Restaurant\RestaurantServiceProvider::class,
+        //\Sorethea\Car\CarServiceProvider::class,
     ])->toArray(),
 
     /*
