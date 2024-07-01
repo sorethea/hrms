@@ -20,6 +20,7 @@ use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Jeffgreco13\FilamentBreezy\BreezyCore;
+use Sorethea\Car\CarPlugin;
 use Sorethea\Core\CorePlugin;
 use Sorethea\Hrms\HrmsPlugin;
 use Sorethea\Restaurant\RestaurantPlugin;
@@ -46,6 +47,7 @@ class AdminPanelProvider extends PanelProvider
                 CorePlugin::make(),
                 RestaurantPlugin::make(),
                 HrmsPlugin::make(),
+                CarPlugin::make(),
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([

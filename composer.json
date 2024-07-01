@@ -10,18 +10,23 @@
     "require": {
         "php": "^8.2",
         "bezhansalleh/filament-shield": "^3.2.4",
+        "blade-ui-kit/blade-icons": "^1.6",
+        "codeat3/blade-google-material-design-icons": "^1.19",
+        "davidhsianturi/blade-bootstrap-icons": "^1.5",
         "devaslanphp/filament-avatar": "^1.0",
         "filament/filament": "^3.2.62",
         "filament/widgets": "^3.2",
+        "flowframe/laravel-trend": "^0.2.0",
         "guzzlehttp/guzzle": "^7.8.1",
-        "jzonta/faker-restaurant": "2.0.1",
         "jeffgreco13/filament-breezy": "^2.3.1",
+        "jzonta/faker-restaurant": "2.0.1",
         "laravel/framework": "^11.0",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9.0",
-        "flowframe/laravel-trend": "^0.2.0",
+        "owenvoke/blade-fontawesome": "^2.6",
         "pxlrbt/filament-activity-log": "^1.1.1",
-        "spatie/laravel-activitylog": "^4.8"
+        "spatie/laravel-activitylog": "^4.8",
+        "ublabs/blade-coreui-icons": "^0.3.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
@@ -38,6 +43,7 @@
             "Sorethea\\Core\\": "packages/theA/core/src/",
             "Sorethea\\Hrms\\": "packages/theA/hrms/src/",
             "Sorethea\\Restaurant\\": "packages/theA/restaurant/src/",
+            "Sorethea\\Car\\": "packages/theA/car/src/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
         }
