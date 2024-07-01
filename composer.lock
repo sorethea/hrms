@@ -5843,12 +5843,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sorethea/car.git",
-                "reference": "6193c823f67efb5a54860320dd1819d151db4e78"
+                "reference": "802fa8b87a6cc5277c0dc2baa522156b562ecf25"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sorethea/car/zipball/6193c823f67efb5a54860320dd1819d151db4e78",
-                "reference": "6193c823f67efb5a54860320dd1819d151db4e78",
+                "url": "https://api.github.com/repos/sorethea/car/zipball/802fa8b87a6cc5277c0dc2baa522156b562ecf25",
+                "reference": "802fa8b87a6cc5277c0dc2baa522156b562ecf25",
                 "shasum": ""
             },
             "default-branch": true,
@@ -5881,7 +5881,7 @@
                 "issues": "https://github.com/sorethea/car/issues",
                 "source": "https://github.com/sorethea/car/tree/main"
             },
-            "time": "2024-07-01T03:44:21+00:00"
+            "time": "2024-07-01T03:58:17+00:00"
         },
         {
             "name": "spatie/color",

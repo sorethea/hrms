@@ -47,7 +47,7 @@ class AdminPanelProvider extends PanelProvider
                 CorePlugin::make(),
                 //RestaurantPlugin::make(),
                 //HrmsPlugin::make(),
-                //CarPlugin::make(),
+                CarPlugin::make(),
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
