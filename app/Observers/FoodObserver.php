@@ -2,7 +2,7 @@
 
 namespace App\Observers;
 
-use App\Models\Food;
+use Sorethea\Restaurant\Models\Food;
 
 class FoodObserver
 {

@@ -2,7 +2,7 @@
 
 namespace App\Observers;
 
-use App\Models\Extra;
+use Sorethea\Restaurant\Models\Extra;
 
 class ExtraObserver
 {
