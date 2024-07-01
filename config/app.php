@@ -171,7 +171,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         \Sorethea\Core\CoreServiceProvider::class,
-        \Sorethea\Hrms\HrmsServiceProvider::class,
+        //\Sorethea\Hrms\HrmsServiceProvider::class,
         //\Sorethea\Restaurant\RestaurantServiceProvider::class,
         //\Sorethea\Car\CarServiceProvider::class,
     ])->toArray(),
