@@ -46,7 +46,7 @@ class AdminPanelProvider extends PanelProvider
 
             ->plugins([
                 CorePlugin::make(),
-                RestaurantPlugin::make(),
+                //RestaurantPlugin::make(),
                 //HrmsPlugin::make(),
                 //CarPlugin::make(),
             ])
