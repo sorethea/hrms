@@ -41,9 +41,6 @@
         "psr-4": {
             "App\\": "app/",
             "Sorethea\\Core\\": "packages/theA/core/src/",
-            "Sorethea\\Hrms\\": "packages/theA/hrms/src/",
-            "Sorethea\\Restaurant\\": "packages/theA/restaurant/src/",
-            "Sorethea\\Car\\": "packages/theA/car/src/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
         }
