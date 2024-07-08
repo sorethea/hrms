@@ -41,7 +41,6 @@
     "autoload": {
         "psr-4": {
             "App\\": "app/",
-            "Sorethea\\Core\\": "packages/theA/core/src/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
         }
