@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4ca56cb05a2826f9f067331998f0cf1c",
+    "content-hash": "100fba2bdea7a3dcef31d379b6793104",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -5839,6 +5839,110 @@
             "time": "2024-02-26T18:08:49+00:00"
         },
         {
+            "name": "sorethea/core",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sorethea/the-a-core.git",
+                "reference": "e1bfa4a8e3fb2273094965bd5b8ad15928468dce"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sorethea/the-a-core/zipball/e1bfa4a8e3fb2273094965bd5b8ad15928468dce",
+                "reference": "e1bfa4a8e3fb2273094965bd5b8ad15928468dce",
+                "shasum": ""
+            },
+            "require": {
+                "bezhansalleh/filament-shield": "^3.2.4",
+                "devaslanphp/filament-avatar": "^1.0",
+                "filament/filament": "^3.2.62",
+                "filament/widgets": "^3.2",
+                "jeffgreco13/filament-breezy": "^2.3.1",
+                "pxlrbt/filament-activity-log": "^1.1.1"
+            },
+            "default-branch": true,
+            "type": "plugin",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Sorethea\\Core\\AuthCoreServiceProvider",
+                        "Sorethea\\Core\\CoreServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Sorethea\\Core\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sorethea OK",
+                    "email": "sorethea@gmail.com"
+                }
+            ],
+            "description": "Filament application core.",
+            "support": {
+                "issues": "https://github.com/sorethea/the-a-core/issues",
+                "source": "https://github.com/sorethea/the-a-core/tree/main"
+            },
+            "time": "2024-05-06T04:37:00+00:00"
+        },
+        {
+            "name": "sorethea/restaurant",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sorethea/the-a-restaurant.git",
+                "reference": "247b2ed9c5d4f5f05e82703c41e532a4849a684e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sorethea/the-a-restaurant/zipball/247b2ed9c5d4f5f05e82703c41e532a4849a684e",
+                "reference": "247b2ed9c5d4f5f05e82703c41e532a4849a684e",
+                "shasum": ""
+            },
+            "require": {
+                "jzonta/faker-restaurant": "2.0.1",
+                "sorethea/core": "dev-main"
+            },
+            "default-branch": true,
+            "type": "plugin",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Sorethea\\Restaurant\\AuthRestaurantServiceProvider",
+                        "Sorethea\\Restaurant\\RestaurantServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Sorethea\\Restaurant\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sorethea OK",
+                    "email": "sorethea@gmail.com"
+                }
+            ],
+            "description": "Filament plugin for restaurant",
+            "support": {
+                "issues": "https://github.com/sorethea/the-a-restaurant/issues",
+                "source": "https://github.com/sorethea/the-a-restaurant/tree/main"
+            },
+            "time": "2024-07-01T03:31:01+00:00"
+        },
+        {
             "name": "spatie/color",
             "version": "1.5.3",
             "source": {
@@ -11484,7 +11588,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "sorethea/restaurant": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
