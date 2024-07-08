@@ -30,7 +30,6 @@ class AdminPanelProvider extends PanelProvider
     public function panel(Panel $panel): Panel
     {
         return $panel
-            ->navigation(false)
             ->spa()
             ->default()
             ->id('admin')
