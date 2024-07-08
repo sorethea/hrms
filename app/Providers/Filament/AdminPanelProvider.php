@@ -30,6 +30,7 @@ class AdminPanelProvider extends PanelProvider
     public function panel(Panel $panel): Panel
     {
         return $panel
+            ->spa()
             ->default()
             ->id('admin')
             ->path('')
@@ -46,8 +47,8 @@ class AdminPanelProvider extends PanelProvider
             ->plugins([
                 CorePlugin::make(),
                 //RestaurantPlugin::make(),
-                //HrmsPlugin::make(),
-                CarPlugin::make(),
+                HrmsPlugin::make(),
+                //CarPlugin::make(),
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
