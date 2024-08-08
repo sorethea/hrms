@@ -1,0 +1,19 @@
+{
+    "name": "sorethea/stock",
+    "description": "Stock management",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Sorethea\\Stock\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Sorethea OK",
+            "email": "sorethea@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
