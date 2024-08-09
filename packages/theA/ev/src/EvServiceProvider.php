@@ -10,10 +10,10 @@ class EvServiceProvider extends PackageServiceProvider
 
     public function configurePackage(Package $package): void
     {
-        $package->name('ev')
+        $package->name('thea-ev')
             ->hasConfigFile()
             ->hasMigrations()
-            ->hasViews()
+            ->hasViews('ev')
             ->hasTranslations();
     }
 
