@@ -13,6 +13,7 @@ class EvServiceProvider extends PackageServiceProvider
         $package->name('thea-ev')
             ->hasConfigFile()
             ->hasMigrations()
+            ->hasViews()
             ->hasTranslations();
     }
 
