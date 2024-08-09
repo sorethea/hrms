@@ -175,8 +175,7 @@ return [
         //\Sorethea\Hrms\HrmsServiceProvider::class,
         //\Sorethea\Restaurant\RestaurantServiceProvider::class,
         //\Sorethea\Car\CarServiceProvider::class,
-        Sorethea\Ev\AuthEvServiceProvider::class,
-        Sorethea\Ev\PluginServiceProvider::class,
+        \Sorethea\Ev\EvServiceProvider::class,
     ])->toArray(),
 
     /*
