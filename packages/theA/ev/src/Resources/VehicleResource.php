@@ -3,6 +3,8 @@
 namespace Sorethea\Ev\Resources;
 
 use App\Filament\Resources\VehicleResource\Pages;
+use BezhanSalleh\FilamentShield\Contracts\HasShieldPermissions;
+use BezhanSalleh\FilamentShield\Facades\FilamentShield;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables\Actions\BulkActionGroup;
@@ -10,9 +12,10 @@ use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Table;
+use OpenSpout\Reader\SheetInterface;
 use Sorethea\Ev\Models\Vehicle;
 
-class VehicleResource extends Resource
+class VehicleResource extends Resource implements HasShieldPermissions
 {
     protected static ?string $model = Vehicle::class;
 
@@ -58,5 +61,17 @@ class VehicleResource extends Resource
     public static function getGloballySearchableAttributes(): array
     {
         return [];
+    }
+
+    public static function getPermissionPrefixes(): array
+    {
+        return [
+            'view',
+            'view_any',
+            'create',
+            'update',
+            'delete',
+            'delete_any',
+        ];
     }
 }
