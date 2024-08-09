@@ -18,18 +18,18 @@ class EvServiceProvider extends PackageServiceProvider
             ->hasTranslations();
     }
 
-//    public function register(): void
-//    {
-////        if (! app()->configurationIsCached()) {
-////            $this->mergeConfigFrom(__DIR__.'/../config/restaurant.php', 'restaurant');
-////        }
-//
-////        $this->loadTranslationsFrom(__DIR__.'/../lang','restaurant');
-////        $this->loadViewsFrom(__DIR__.'/../resources/views','ev');
-//    }
-//
-//    public function boot(): void
-//    {
-//        //$this->loadViewsFrom(__DIR__.'/../resources/views','ev');
-//    }
+    public function register(): void
+    {
+//        if (! app()->configurationIsCached()) {
+//            $this->mergeConfigFrom(__DIR__.'/../config/restaurant.php', 'restaurant');
+//        }
+
+//        $this->loadTranslationsFrom(__DIR__.'/../lang','restaurant');
+//        $this->loadViewsFrom(__DIR__.'/../resources/views','ev');
+    }
+
+    public function boot(): void
+    {
+        //$this->loadViewsFrom(__DIR__.'/../resources/views','ev');
+    }
 }
