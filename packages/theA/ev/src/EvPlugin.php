@@ -5,6 +5,7 @@ namespace Sorethea\Ev;
 use Filament\Contracts\Plugin;
 use Filament\Panel;
 use Sorethea\Ev\Pages\MyEv;
+use Sorethea\Ev\Pages\MyVehicle;
 use Sorethea\Ev\Resources\VehicleResource;
 
 class EvPlugin implements Plugin
@@ -18,7 +19,7 @@ class EvPlugin implements Plugin
     {
         $panel
             ->pages([
-                MyEv::class,
+                MyVehicle::class,
             ])
             ->resources([
             VehicleResource::class,
