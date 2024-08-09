@@ -42,6 +42,7 @@
         "psr-4": {
             "App\\": "app/",
             "Sorethea\\Stock\\": "packages/theA/stock/src",
+            "Sorethea\\Ev\\": "packages/theA/ev/src",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
         }
