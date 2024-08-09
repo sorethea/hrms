@@ -22,6 +22,7 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Jeffgreco13\FilamentBreezy\BreezyCore;
 use Sorethea\Car\CarPlugin;
 use Sorethea\Core\CorePlugin;
+use Sorethea\Ev\EvPlugin;
 use Sorethea\Hrms\HrmsPlugin;
 use Sorethea\Restaurant\RestaurantPlugin;
 
@@ -49,6 +50,7 @@ class AdminPanelProvider extends PanelProvider
                 //RestaurantPlugin::make(),
                 //HrmsPlugin::make(),
                 //CarPlugin::make(),
+                EvPlugin::make(),
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
