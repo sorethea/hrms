@@ -13,7 +13,7 @@ class EvServiceProvider extends PackageServiceProvider
         $package->name('thea-ev')
             ->hasConfigFile()
             ->hasMigrations()
-            ->hasViews()
+            ->hasViews('vehicle')
             ->hasTranslations();
     }
 
@@ -24,11 +24,11 @@ class EvServiceProvider extends PackageServiceProvider
 //        }
 
 //        $this->loadTranslationsFrom(__DIR__.'/../lang','restaurant');
-        $this->loadViewsFrom(__DIR__.'/../resources/views','ev');
+//        $this->loadViewsFrom(__DIR__.'/../resources/views','ev');
     }
 
     public function boot(): void
     {
-        $this->loadViewsFrom(__DIR__.'/../resources/views','ev');
+        //$this->loadViewsFrom(__DIR__.'/../resources/views','ev');
     }
 }
