@@ -1,0 +1,26 @@
+{
+    "name": "sorethea/ev",
+    "description": "EV logging system.",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Sorethea\\Ev\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Sorethea\\Ev\\AuthEvServiceProvider",
+                "Sorethea\\Ev\\EvServiceProvider"
+            ]
+        }
+    },
+    "authors": [
+        {
+            "name": "Sorethea OK",
+            "email": "sorethea@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}

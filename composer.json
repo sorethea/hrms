@@ -41,6 +41,7 @@
     "autoload": {
         "psr-4": {
             "App\\": "app/",
+            "Sorethea\\Stock\\": "packages/theA/stock/src",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
         }

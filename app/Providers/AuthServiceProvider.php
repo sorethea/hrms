@@ -5,6 +5,8 @@ namespace App\Providers;
 // use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Sorethea\Core\Policies\RolePolicy;
+use Sorethea\Ev\Models\Vehicle;
+use Sorethea\Ev\Policies\VehiclePolicy;
 use Spatie\Permission\Models\Role;
 
 class AuthServiceProvider extends ServiceProvider
@@ -15,7 +17,8 @@ class AuthServiceProvider extends ServiceProvider
      * @var array<class-string, class-string>
      */
     protected $policies = [
-        Role::class=>RolePolicy::class,
+        Role::class => RolePolicy::class,
+        Vehicle::class => VehiclePolicy::class,
     ];
 
     /**

@@ -7,7 +7,7 @@ use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class StockServiceProvider extends PackageServiceProvider
 {
-    public static string $name = "theA-stock";
+    public static string $name = "thea-stock";
     public function register(): void
     {
 
@@ -19,6 +19,10 @@ class StockServiceProvider extends PackageServiceProvider
 
     public function configurePackage(Package $package): void
     {
-        // TODO: Implement configurePackage() method.
+        $package->name('thea-stock')
+            ->hasConfigFile()
+            ->hasTranslations()
+            ->hasMigrations()
+            ->hasViews();
     }
 }
