@@ -27,6 +27,7 @@
         "pxlrbt/filament-activity-log": "^1.1.1",
         "sorethea/restaurant": "dev-main",
         "spatie/laravel-activitylog": "^4.8",
+        "spatie/laravel-package-tools": "^1.16",
         "ublabs/blade-coreui-icons": "^0.3.0"
     },
     "require-dev": {
@@ -70,7 +71,11 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": []
+            "dont-discover": [],
+            "providers": [
+                "Sorethea\\Ev\\AuthEvServiceProvider",
+                "Sorethea\\Ev\\EvServiceProvider"
+            ]
         }
     },
     "config": {
