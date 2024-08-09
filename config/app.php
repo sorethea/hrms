@@ -171,6 +171,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         \Sorethea\Core\CoreServiceProvider::class,
+        \Sorethea\Ev\EvServiceProvider::class,
 
     ])->toArray(),
 

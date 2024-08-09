@@ -71,11 +71,7 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": [],
-            "providers": [
-                "Sorethea\\Ev\\AuthEvServiceProvider",
-                "Sorethea\\Ev\\EvServiceProvider"
-            ]
+            "dont-discover": []
         }
     },
     "config": {
