@@ -8,7 +8,7 @@ use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class EvServiceProvider extends PackageServiceProvider
 {
-    public static string $name = "thea-ev";
+    public static string $name = "ev";
 
     public function configurePackage(Package $package): void
     {
