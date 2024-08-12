@@ -45,7 +45,9 @@ class VehicleForm extends Component implements HasActions, HasForms
         ])->statePath('data');
     }
     public function submit(): void {
+
         $data = collect($this->form->getState())->all();
+        $data['user_id']=auth()->user()->id??null;
         dd($data);
     }
 
