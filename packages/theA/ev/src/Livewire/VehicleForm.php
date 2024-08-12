@@ -26,6 +26,9 @@ class VehicleForm extends Component implements HasActions, HasForms
                 TextInput::make('make')
                     ->label(__('ev::default.vehicle.make'))
                     ->required(),
+                TextInput::make('model')
+                    ->label(__('ev::default.vehicle.model'))
+                    ->required(),
             ])->columns(2),
 
         ])->statePath('data');
