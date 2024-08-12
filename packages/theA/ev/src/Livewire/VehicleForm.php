@@ -14,7 +14,7 @@ class VehicleForm extends Component implements HasActions, HasForms
 {
     use InteractsWithActions, InteractsWithForms;
 
-    protected string $view = 'vehicle::livewire.vehicle-form';
+    protected string $view = 'ev::livewire.vehicle-form';
 
     public function form(Form $form): Form {
         return $form->schema([
