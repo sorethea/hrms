@@ -61,6 +61,4 @@ class VehicleForm extends Component implements HasActions, HasForms
     {
         return $this->view;
     }
-
-
 }
