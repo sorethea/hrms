@@ -5,6 +5,7 @@ namespace Sorethea\Ev\Livewire;
 use Filament\Actions\Action;
 use Filament\Actions\Concerns\InteractsWithActions;
 use Filament\Actions\Contracts\HasActions;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Forms\Form;
@@ -20,7 +21,9 @@ class VehicleForm extends Component implements HasActions, HasForms
 
     public function form(Form $form): Form {
         return $form->schema([
-
+            TextInput::make('make')
+                ->label(__('ev::default.vehicle.make'))
+                ->required(),
         ])->statePath('data');
     }
     public function submit(): void {

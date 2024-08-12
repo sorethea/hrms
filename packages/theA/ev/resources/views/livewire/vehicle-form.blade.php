@@ -3,7 +3,7 @@
         {{$this->form}}
         <div class="text-right">
             <x-filament::button type="submit" form="submit" class="align-right">
-                {{ __('filament-breezy::default.profile.password.submit.label') }}
+                {{ __('') }}
             </x-filament::button>
         </div>
     </form>
