@@ -2,24 +2,17 @@
 
 namespace Sorethea\Ev\Resources;
 
-use App\Filament\Resources\VehicleResource\Pages;
-use BezhanSalleh\FilamentShield\Contracts\HasShieldPermissions;
-use BezhanSalleh\FilamentShield\Facades\FilamentShield;
+use Sorethea\Ev\Resources\VehicleResource\Pages;
+use Sorethea\Ev\Resources\VehicleResource\RelationManagers;
+use Sorethea\Ev\Models\Vehicle;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Tables\Actions\BulkActionGroup;
-use Filament\Tables\Actions\DeleteAction;
-use Filament\Tables\Actions\DeleteBulkAction;
-use Filament\Tables\Actions\EditAction;
+use Filament\Tables;
 use Filament\Tables\Table;
-use OpenSpout\Reader\SheetInterface;
-use Sorethea\Ev\Models\Vehicle;
 
-class VehicleResource extends Resource implements HasShieldPermissions
+class VehicleResource extends Resource
 {
     protected static ?string $model = Vehicle::class;
-
-    protected static ?string $slug = 'vehicles';
 
     protected static ?string $navigationIcon = 'carbon-traffic-event';
 
@@ -27,6 +20,7 @@ class VehicleResource extends Resource implements HasShieldPermissions
     {
         return $form
             ->schema([
+                //
             ]);
     }
 
@@ -34,19 +28,26 @@ class VehicleResource extends Resource implements HasShieldPermissions
     {
         return $table
             ->columns([
+                //
             ])
             ->filters([
                 //
             ])
             ->actions([
-                EditAction::make(),
-                DeleteAction::make(),
+                Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
-                BulkActionGroup::make([
-                    DeleteBulkAction::make(),
+                Tables\Actions\BulkActionGroup::make([
+                    Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ]);
+    }
+
+    public static function getRelations(): array
+    {
+        return [
+            //
+        ];
     }
 
     public static function getPages(): array
@@ -55,23 +56,6 @@ class VehicleResource extends Resource implements HasShieldPermissions
             'index' => \Sorethea\Ev\Resources\VehicleResource\Pages\ListVehicles::route('/'),
             'create' => \Sorethea\Ev\Resources\VehicleResource\Pages\CreateVehicle::route('/create'),
             'edit' => \Sorethea\Ev\Resources\VehicleResource\Pages\EditVehicle::route('/{record}/edit'),
-        ];
-    }
-
-    public static function getGloballySearchableAttributes(): array
-    {
-        return [];
-    }
-
-    public static function getPermissionPrefixes(): array
-    {
-        return [
-            'view',
-            'view_any',
-            'create',
-            'update',
-            'delete',
-            'delete_any',
         ];
     }
 }

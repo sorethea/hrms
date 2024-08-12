@@ -2,7 +2,7 @@
 
 namespace Sorethea\Ev\Resources\VehicleResource\Pages;
 
-use Filament\Actions\DeleteAction;
+use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 use Sorethea\Ev\Resources\VehicleResource;
 
@@ -13,7 +13,7 @@ class EditVehicle extends EditRecord
     protected function getHeaderActions(): array
     {
         return [
-            DeleteAction::make(),
+            Actions\DeleteAction::make(),
         ];
     }
 }

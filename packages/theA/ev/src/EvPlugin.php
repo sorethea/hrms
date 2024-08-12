@@ -25,7 +25,7 @@ class EvPlugin implements Plugin
                 MyVehicle::class,
             ])
             ->resources([
-            VehicleResource::class,
+                VehicleResource::class,
         ]);
     }
 
