@@ -5,6 +5,7 @@ namespace Sorethea\Ev\Livewire;
 use Filament\Actions\Action;
 use Filament\Actions\Concerns\InteractsWithActions;
 use Filament\Actions\Contracts\HasActions;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Concerns\InteractsWithForms;
@@ -29,6 +30,16 @@ class VehicleForm extends Component implements HasActions, HasForms
                 TextInput::make('model')
                     ->label(__('ev::default.vehicle.model'))
                     ->required(),
+                TextInput::make('year')
+                    ->label(__('ev::default.vehicle.year'))
+                    ->required(),
+                TextInput::make('plate')
+                    ->label(__('ev::default.vehicle.plate'))
+                    ->nullable(),
+                FileUpload::make('images')
+                    ->multiple()
+                    ->nullable()
+                    ->image(),
             ])->columns(2),
 
         ])->statePath('data');
