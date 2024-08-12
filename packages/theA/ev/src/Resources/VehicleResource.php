@@ -21,7 +21,7 @@ class VehicleResource extends Resource implements HasShieldPermissions
 
     protected static ?string $slug = 'vehicles';
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'bi-carbon-traffic-event';
 
     public static function form(Form $form): Form
     {
