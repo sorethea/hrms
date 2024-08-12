@@ -3,8 +3,14 @@
 namespace Sorethea\Ev\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Sorethea\Core\Models\User;
 
 class Vehicle extends Model
 {
     public $timestamps = false;
+
+    public function user(): BelongsTo{
+        return $this->belongsTo(User::class);
+    }
 }
