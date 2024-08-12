@@ -16,6 +16,8 @@ class VehicleForm extends Component implements HasActions, HasForms
 
     protected string $view = 'ev::livewire.vehicle-form';
 
+    public array $data = [];
+
     public function form(Form $form): Form {
         return $form->schema([
 
@@ -24,4 +26,6 @@ class VehicleForm extends Component implements HasActions, HasForms
     public function submit(): void {
 
     }
+
+
 }
