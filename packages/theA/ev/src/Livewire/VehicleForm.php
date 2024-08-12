@@ -8,6 +8,6 @@ class VehicleForm extends Component
 {
     public function render()
     {
-        return view('livewire.vehicle-form');
+        return view('vehicle::livewire.vehicle-form');
     }
 }
