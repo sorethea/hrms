@@ -6,6 +6,7 @@ return [
         'year'=>'Year',
         'plate'=>'Plate Number',
         'images'=>'Images',
-        'save'=>'Save'
+        'save'=>'Save',
+        'notify'=>'Vehicle save successful!',
     ],
 ];

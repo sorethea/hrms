@@ -11,7 +11,9 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Forms\Form;
+use Filament\Notifications\Notification;
 use Livewire\Component;
+use Sorethea\Ev\Models\Vehicle;
 
 class VehicleForm extends Component implements HasActions, HasForms
 {
@@ -48,7 +50,11 @@ class VehicleForm extends Component implements HasActions, HasForms
 
         $data = collect($this->form->getState())->all();
         $data['user_id']=auth()->user()->id??null;
-        dd($data);
+        Vehicle::updateOrCreate($data);
+        Notification::make()
+            ->success()
+            ->title(__('ev::default.vehicle.notify'))
+            ->send();
     }
 
     public function render(): string
