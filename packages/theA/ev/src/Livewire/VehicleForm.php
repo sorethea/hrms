@@ -27,5 +27,10 @@ class VehicleForm extends Component implements HasActions, HasForms
 
     }
 
+    public function render(): string
+    {
+        return $this->view;
+    }
+
 
 }
