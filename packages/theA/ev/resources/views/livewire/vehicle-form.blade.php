@@ -3,7 +3,7 @@
         {{$this->form}}
         <div class="text-right">
             <x-filament::button type="submit" form="submit" class="align-right">
-                {{ __('') }}
+                {{ __('ev::default.vehicle.save') }}
             </x-filament::button>
         </div>
     </form>

@@ -1,6 +1,7 @@
 <?php
 return [
     'vehicle'=>[
-        'make'=>'Make'
-    ]
+        'make'=>'Make',
+        'save'=>'Save'
+    ],
 ];
