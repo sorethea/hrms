@@ -6,6 +6,7 @@ use Filament\Contracts\Plugin;
 use Filament\Panel;
 use Livewire\Livewire;
 use Sorethea\Ev\Livewire\Vehicle;
+use Sorethea\Ev\Livewire\VehicleForm;
 use Sorethea\Ev\Pages\MyEv;
 use Sorethea\Ev\Pages\MyVehicle;
 use Sorethea\Ev\Resources\VehicleResource;
@@ -30,7 +31,7 @@ class EvPlugin implements Plugin
 
     public function boot(Panel $panel): void
     {
-        Livewire::component('vehicle',Vehicle::class);
+        Livewire::component('vehicle-form',VehicleForm::class);
     }
 
     public static function make(): static

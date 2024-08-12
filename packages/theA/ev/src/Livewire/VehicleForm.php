@@ -4,10 +4,10 @@ namespace Sorethea\Ev\Livewire;
 
 use Livewire\Component;
 
-class Vehicle extends Component
+class VehicleForm extends Component
 {
     public function render()
     {
-        return view('vehicle::livewire.vehicle');
+        return view('livewire.vehicle-form');
     }
 }

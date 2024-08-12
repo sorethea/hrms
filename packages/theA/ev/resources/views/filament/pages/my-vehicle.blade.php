@@ -1,3 +1,3 @@
 <x-filament-panels::page>
-    @livewire('vehicle')
+    @livewire('vehicle-form')
 </x-filament-panels::page>
