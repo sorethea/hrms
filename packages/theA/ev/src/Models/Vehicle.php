@@ -8,8 +8,7 @@ use Sorethea\Core\Models\User;
 
 class Vehicle extends Model
 {
-    public $timestamps = false;
-
+    protected $fillable =[ "user_id", "make", "model", "plate", "year", "images"];
     public function user(): BelongsTo{
         return $this->belongsTo(User::class);
     }
