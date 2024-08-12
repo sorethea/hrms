@@ -1,10 +1,11 @@
 FROM php:8.3-fpm
-
 # Copy composer.lock and composer.json
 COPY composer.json /var/www/
 
 # Set working directory
 WORKDIR /var/www
+
+RUN echo 'memory_limit = 2048M' >> /usr/local/etc/php/conf.d/docker-php-memlimit.ini;
 
 # Install dependencies
 RUN apt-get update && apt-get install -y \
