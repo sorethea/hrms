@@ -78,6 +78,8 @@ class VehicleForm extends Component implements HasActions, HasForms
             Vehicle::create($data);
         }
 
+        $this->vehicle = $data;
+
         Notification::make()
             ->success()
             ->title(__('ev::default.vehicle.notify'))
