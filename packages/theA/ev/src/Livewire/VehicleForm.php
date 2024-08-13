@@ -23,11 +23,10 @@ class VehicleForm extends Component implements HasActions, HasForms
     protected string $view = 'ev::livewire.vehicle-form';
 
     public ? array $data = [];
-
+    public ? array $vehicle = [];
     public function mount(){
         $user = auth()->user();
-        $vehicle = Vehicle::where('user_id',$user->id)->first();
-        $this->form->state($vehicle);
+        $this->vehicle = Vehicle::where('user_id',$user->id)->first()??[];
     }
     public function form(Form $form): Form {
         return $form->schema([
@@ -65,7 +64,8 @@ class VehicleForm extends Component implements HasActions, HasForms
                     ->image(),
             ])->columns(2),
 
-        ])->statePath('data');
+        ])->fill($this->vehicle)
+            ->statePath('data');
     }
     public function submit(): void {
 
