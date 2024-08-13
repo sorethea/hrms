@@ -28,6 +28,7 @@ class VehicleForm extends Component implements HasActions, HasForms
         $user = auth()->user();
         $vehicle = Vehicle::where('user_id',$user->id)->first()->toArray()??[];
         $this->form->fill($vehicle);
+        $this->vehicle = $vehicle;
     }
     public function form(Form $form): Form {
         return $form->schema([
@@ -71,7 +72,12 @@ class VehicleForm extends Component implements HasActions, HasForms
 
         $data = collect($this->form->getState())->all();
         $data['user_id']=auth()->user()->id??null;
-        Vehicle::updateOrCreate($data);
+        if(!empty($this->vehicle)){
+            Vehicle::update($data);
+        }else{
+            Vehicle::create($data);
+        }
+
         Notification::make()
             ->success()
             ->title(__('ev::default.vehicle.notify'))
