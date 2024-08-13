@@ -13,6 +13,10 @@ return new class extends Migration {
             $table->string('make');
             $table->string('model');
             $table->integer('year');
+            $table->date('buying_date')->nullable();
+            $table->string('battery_type')->nullable();
+            $table->string('battery_capacity')->nullable();
+            $table->double('cost')->default(0);
             $table->string('plate')->nullable();
             $table->string('images')->nullable();
             $table->timestamps();
