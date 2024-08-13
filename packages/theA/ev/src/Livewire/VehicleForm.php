@@ -26,7 +26,7 @@ class VehicleForm extends Component implements HasActions, HasForms
     public ? array $vehicle = [];
     public function mount(){
         $user = auth()->user();
-        $this->vehicle = Vehicle::where('user_id',$user->id)->first()??[];
+        $this->vehicle = Vehicle::where('user_id',$user->id)->first()->toArray()??[];
     }
     public function form(Form $form): Form {
         return $form->schema([
