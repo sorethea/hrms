@@ -26,10 +26,10 @@ class VehicleForm extends Component implements HasActions, HasForms
     public ? array $vehicle = [];
     public function mount(){
         $user = auth()->user();
-        $this->vehicle = Vehicle::where('user_id',$user->id)->first()->toArray()??[];
+        $vehicle = Vehicle::where('user_id',$user->id)->first()->toArray()??[];
+        $this->form->fill($vehicle);
     }
     public function form(Form $form): Form {
-        dd($this->vehicle);
         return $form->schema([
             Section::make([
                 TextInput::make('make')
@@ -65,8 +65,7 @@ class VehicleForm extends Component implements HasActions, HasForms
                     ->image(),
             ])->columns(2),
 
-        ])->fill($this->vehicle)
-            ->statePath('data');
+        ])->statePath('data');
     }
     public function submit(): void {
 
