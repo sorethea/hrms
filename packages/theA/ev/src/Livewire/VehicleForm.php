@@ -42,14 +42,14 @@ class VehicleForm extends Component implements HasActions, HasForms
                 DatePicker::make('buying_date')
                     ->label(__('ev::default.vehicle.buying_date'))
                     ->nullable(),
+                TextInput::make('cost')
+                    ->label(__('ev::default.vehicle.cost'))
+                    ->nullable(),
                 DatePicker::make('battery_type')
                     ->label(__('ev::default.vehicle.battery_type'))
                     ->nullable(),
-                DatePicker::make('battery_capacity')
+                TextInput::make('battery_capacity')
                     ->label(__('ev::default.vehicle.battery_capacity'))
-                    ->nullable(),
-                TextInput::make('cost')
-                    ->label(__('ev::default.vehicle.cost'))
                     ->nullable(),
                 TextInput::make('plate')
                     ->label(__('ev::default.vehicle.plate'))
