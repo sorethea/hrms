@@ -75,7 +75,7 @@ class VehicleForm extends Component implements HasActions, HasForms
         if(!empty($this->vehicle)){
             $this->vehicle->update($data);
         }else{
-            $this->vehicle->create($data);
+            Vehicle::create($data);
         }
 
         Notification::make()
