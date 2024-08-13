@@ -5,6 +5,7 @@ namespace Sorethea\Ev\Livewire;
 use Filament\Actions\Action;
 use Filament\Actions\Concerns\InteractsWithActions;
 use Filament\Actions\Contracts\HasActions;
+use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\TextInput;
@@ -35,6 +36,21 @@ class VehicleForm extends Component implements HasActions, HasForms
                 TextInput::make('year')
                     ->label(__('ev::default.vehicle.year'))
                     ->required(),
+                TextInput::make('odo')
+                    ->label(__('ev::default.vehicle.odo'))
+                    ->nullable(),
+                DatePicker::make('buying_date')
+                    ->label(__('ev::default.vehicle.buying_date'))
+                    ->nullable(),
+                DatePicker::make('battery_type')
+                    ->label(__('ev::default.vehicle.battery_type'))
+                    ->nullable(),
+                DatePicker::make('battery_capacity')
+                    ->label(__('ev::default.vehicle.battery_capacity'))
+                    ->nullable(),
+                TextInput::make('cost')
+                    ->label(__('ev::default.vehicle.cost'))
+                    ->nullable(),
                 TextInput::make('plate')
                     ->label(__('ev::default.vehicle.plate'))
                     ->nullable(),
