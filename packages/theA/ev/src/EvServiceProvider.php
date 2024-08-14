@@ -14,7 +14,10 @@ class EvServiceProvider extends PackageServiceProvider
     {
         $package->name(static::$name)
             ->hasConfigFile('vehicle')
-            ->hasMigrations(['create_vehicles_table'])
+            ->hasMigrations([
+                'create_vehicles_table',
+                'create_stations_table',
+                ])
             ->hasViews()
             ->hasTranslations()
             ->hasInstallCommand(function (InstallCommand $command){
